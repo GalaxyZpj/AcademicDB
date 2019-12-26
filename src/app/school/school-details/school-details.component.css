@@ -1,0 +1,11 @@
+.container
+{
+  position:relative;
+  top:20px;
+  background-color:#d4ffff;
+  color:#132a70;
+  text-align: center;
+  width:55%;
+  border-style: solid;
+  border-color: #132a70;
+}

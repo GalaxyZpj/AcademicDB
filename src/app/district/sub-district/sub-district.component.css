@@ -1,0 +1,23 @@
+h2
+{
+  color:#132a70;
+}
+li
+{
+  font-size: 15.5px;
+}
+
+li:hover:not(.active)
+{
+  background-color:#badbff;
+opacity:0.8;
+color:black;
+}
+
+.list-group-item.active
+{
+  background-color:#3A56A1;
+  border: none;
+  font-size: 16.5px;
+
+}

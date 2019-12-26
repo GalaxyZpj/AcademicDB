@@ -1,0 +1,41 @@
+.container-fluid
+{
+  background-color:#01024e;
+  height:55px;
+  font-size:18px;
+  border-style: solid;
+  border-color: #bae8e8;
+  border-width: 0px;
+}
+.navbar-brand
+{
+  color:#bae8e8;
+  font-size: 26px;
+}
+.navbar-brand:hover
+{
+  color:#52de97;
+}
+li a
+{
+ color:#f7be16;
+ padding-right: 25px;
+ padding-left: 25px;
+
+}
+
+li a:hover
+{
+
+  color:#e3f6f5;
+  background-color:#07194f;
+}
+
+.navbar-default
+{
+  border:none;
+}
+.active
+{
+  background-color: red;
+}
