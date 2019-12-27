@@ -1,20 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DistrictComponent } from './district/district.component';
-import { SubDistrictComponent } from './district/sub-district/sub-district.component';
+import { HomeComponent } from './home/home.component';
+import { RecordsComponent } from './records/records.component';
 import { SchoolComponent } from './school/school.component';
-import { SchoolDetailsComponent } from './school/school-details/school-details.component';
-
+import { StudentComponent } from './student/student.component';
 
 const routes: Routes = [
-  { path: '', component: DistrictComponent, children: [
-      { path: ':dist', component: SubDistrictComponent, children: [
-        { path: ':subDist', component: SchoolComponent }
-      ] }
-    ] },
-  { path: ':dist/:subDist/:school', component: SchoolDetailsComponent }
-  
+  { path: '', component: HomeComponent },
+  { path: 'records', component: RecordsComponent },
+  { path: 'student', component: StudentComponent },
+  { path: 'school/:dist/:subDist/:school', component: SchoolComponent },
 ];
 
 @NgModule({

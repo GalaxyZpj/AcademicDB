@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-xs-4">
+        <h2> Choose a District</h2>
+        <hr>
+        <ul class="list-group">
+            <li class="list-group-item"
+                *ngFor="let dist of district;"
+                [ngClass]="{active: dist == districtSelected}"
+                (click)="onSelectDistrict(dist)">
+                {{ dist | uppercase}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-xs-4" *ngIf="districtChoosed">
+        <h2>Choose a SubDistrict</h2>
+        <hr>
+        <ul class="list-group">
+            <li class="list-group-item"
+                *ngFor="let subDist of subDistrict;"
+                [ngClass]="{active: subDist == subDistrictSelected}"
+                (click)="onSelectSubDistrict(subDist)">
+                {{ subDist | uppercase}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-xs-4" *ngIf="subDistrictChoosed">
+        <h2>Choose a School</h2>
+        <hr>
+        <ul class="list-group">
+            <li class="list-group-item"
+                *ngFor="let school of schools;"
+                (click)="onSelectSchool(school)">
+                {{ school }}
+            </li>
+        </ul>
+    </div>
+</div>
