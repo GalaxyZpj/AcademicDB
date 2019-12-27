@@ -1,0 +1,23 @@
+.container {
+    background-color: #a57a2a7c;
+    color: #292828;
+    font-size: 0.6cm;
+    padding: 5%;
+    margin-top: 0.5cm;
+}
+h1 {
+    font-size: 2cm;
+    font-weight: bold;
+}
+button {
+    background-color: rgba(197, 118, 0, 0.493);
+    padding: 3%;
+    font-size: x-large;
+    font-weight: bold;
+    color: rgb(44, 44, 44);
+}
+p {
+    color: rgb(43, 43, 43);
+    font-size: 0.8cm;
+    font-weight: bold;
+}

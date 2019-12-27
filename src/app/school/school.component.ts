@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { DataFetchService } from '../shared/data-fetch.service';
 
 @Component({
   selector: 'app-school',
@@ -10,8 +11,14 @@ export class SchoolComponent implements OnInit {
   district: string;
   subDistrict: string;
   school: string;
-
-  constructor(private route: ActivatedRoute) { }
+  schoolInfo: { schoolcode: string,
+                name: string,
+                address: string,
+                subDistrict: string,
+                board: string,
+                principal: string,
+                teacherCount: number }
+  constructor(private route: ActivatedRoute, private data: DataFetchService) { }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -21,6 +28,12 @@ export class SchoolComponent implements OnInit {
         this.school = params['school'];
       }
     );
+    this.schoolInfo = this.data.fetchSchoolDetails('temp123');
   }
-
+  onStudentRecord() {
+    console.log('Student Fetching...');
+  }
+  onTeacherRecord() {
+    console.log('Teacher Fetching...');
+  }
 }

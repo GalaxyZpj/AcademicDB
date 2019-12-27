@@ -1,3 +1,63 @@
-<h1>{{ district }}</h1>
-<h1>{{ subDistrict }}</h1>
-<h1>{{ school }}</h1>
+<div class="container">
+    <form>
+        <div class="form-row">
+            <div class="col">
+                <h1>
+                    {{ school }} 
+                    <span class="float-right">
+                        <img src="https://oxfordpublicschool.net/sliders/OXFORD%20ps%20logo%20final2.png" 
+                            alt="OXFORD" 
+                            height="100px" 
+                            width="100px">
+                    </span>
+                </h1>
+                <hr>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col m-auto"><label class="col-form-label" for="schoolcode">School Code</label></div>
+            <div class="col-auto"><label class="col-form-label">:</label></div>
+            <div class="col"><label class="col-form-label" for="admissionNoValue">{{ schoolInfo.schoolcode }}</label></div>
+        </div>
+        <div class="form-row">
+            <div class="col m-auto"><label class="col-form-label" for="address">Address</label></div>
+            <div class="col-auto"><label class="col-form-label">:</label></div>
+            <div class="col"><label class="col-form-label" for="nameValue">{{ schoolInfo.address }}</label></div>
+        </div>
+        <div class="form-row">
+            <div class="col m-auto"><label class="col-form-label" for="subDistrict">Sub District</label></div>
+            <div class="col-auto"><label class="col-form-label">:</label></div>
+            <div class="col"><label class="col-form-label" for="rollnoValue">{{ schoolInfo.subDistrict }}</label></div>
+        </div>
+        <div class="form-row">
+            <div class="col m-auto"><label class="col-form-label" for="board">Board</label></div>
+            <div class="col-auto"><label class="col-form-label">:</label></div>
+            <div class="col"><label class="col-form-label" for="standardValue">{{ schoolInfo.board }}</label></div>
+        </div>
+        <div class="form-row">
+            <div class="col m-auto"><label class="col-form-label" for="principal">Principal</label></div>
+            <div class="col-auto"><label class="col-form-label">:</label></div>
+            <div class="col"><label class="col-form-label" for="sectionValue">{{ schoolInfo.principal }}</label></div>
+        </div>
+        <div class="form-row">
+            <div class="col m-auto"><label class="col-form-label" for="gender">Teacher Count</label></div>
+            <div class="col-auto"><label class="col-form-label">:</label></div>
+            <div class="col"><label class="col-form-label" for="genderValue">{{ schoolInfo.teacherCount }}</label></div>
+        </div>
+        <hr>
+        <div class="form-row">
+            <div class="col m-auto">
+                <p align="center">To fetch records related to the school, click on the buttons below.</p>
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="col m-auto" align="center">
+                <button class="btn btn-danger" type="button" (click)="onStudentRecord()">Click here for Student Records</button>
+            </div>
+            <div class="col m-auto" align="center">
+                <button class="btn btn-danger" type="button" (click)="onTeacherRecord()">Click here for Teacher Records</button>
+            </div>
+        </div>
+    </form>
+</div>

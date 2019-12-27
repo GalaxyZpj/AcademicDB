@@ -23,16 +23,16 @@ export class RecordsComponent implements OnInit {
   constructor(private router: Router, private data: DataFetchService) { }
 
   ngOnInit() {
-    this.district = this.data.setDistrict();
+    this.district = this.data.fetchDistricts();
   }
   onSelectDistrict(dist: string) {
     this.districtSelected = dist;
-    this.subDistrict = this.data.setSubDistrict(dist);
+    this.subDistrict = this.data.fetchSubDistricts(dist);
     this.districtChoosed = true;
   }
   onSelectSubDistrict(subDist: string) {
     this.subDistrictSelected = subDist;
-    this.schools = this.data.setSchools(subDist);
+    this.schools = this.data.fetchSchools(subDist);
     this.subDistrictChoosed = true;
   }
   onSelectSchool(school: string) {

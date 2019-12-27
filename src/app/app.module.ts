@@ -7,8 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { RecordsComponent } from './records/records.component';
 import { SchoolComponent } from './school/school.component';
-import { StudentComponent } from './student/student.component';
-import { TeacherComponent } from './teacher/teacher.component';
+import { StudentComponent } from './school/student/student.component';
+import { TeacherComponent } from './school/teacher/teacher.component';
 
 
 @NgModule({

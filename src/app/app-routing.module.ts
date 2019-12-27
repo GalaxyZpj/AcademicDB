@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RecordsComponent } from './records/records.component';
 import { SchoolComponent } from './school/school.component';
-import { StudentComponent } from './student/student.component';
+import { StudentComponent } from './school/student/student.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
