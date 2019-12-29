@@ -25,18 +25,22 @@ export class RecordsComponent implements OnInit {
   ngOnInit() {
     this.district = this.data.fetchDistricts();
   }
+
   onSelectDistrict(dist: string) {
     this.districtSelected = dist;
     this.subDistrict = this.data.fetchSubDistricts(dist);
     this.districtChoosed = true;
   }
+
   onSelectSubDistrict(subDist: string) {
     this.subDistrictSelected = subDist;
     this.schools = this.data.fetchSchools(subDist);
     this.subDistrictChoosed = true;
   }
+
   onSelectSchool(school: string) {
     this.schoolSelected = school;
     this.router.navigate(['/school', this.districtSelected, this.subDistrictSelected, this.schoolSelected]);
   }
+  
 }

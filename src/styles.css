@@ -6,3 +6,7 @@ body{
   background:url("src\environments\bg5.jpg") ;
 
 }
+.center {
+  display: flex;
+  justify-content: center;
+}

@@ -1,5 +1,5 @@
 <div class="container">
-    <form>
+    <form *ngIf="schoolDetailsLoaded" #schoolDetails>
         <div class="form-row">
             <div class="col">
                 <h1>
@@ -59,5 +59,38 @@
                 <button class="btn btn-danger" type="button" (click)="onTeacherRecord()">Click here for Teacher Records</button>
             </div>
         </div>
+    </form>
+    <form *ngIf="classLoaded" #standardList>
+        <h1 class="center">Class List</h1><br>
+            <div class="form-row">
+                <div class="col center">
+                    <ul class="list-group center">
+                        <li class="list-group-item center"
+                            *ngFor="let standard of standardData;"
+                            (click)="onSelectStandard(standard)">
+                            {{ standard }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </form>
+    <form *ngIf="studentLoaded" #studentList>
+        <h1 class="center">Student List</h1><br>
+            <div class="form-row">
+                <div class="col center">
+                    <ul class="list-group center">
+                        <li class="list-group-item center"
+                            *ngFor="let student of studentData;"
+                            (click)="onSelectStudent(student.admissionNo)">
+                            <div class="row">
+                                <div class="col-xs-4">{{ student.admissionNo }}</div>
+                                <div class="col">:</div>
+                                <div class="col-xs-8">{{ student.name }}</div>
+                            </div>
+                            <!-- {{ student.admissionNo }}: {{ student.name }} -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
     </form>
 </div>

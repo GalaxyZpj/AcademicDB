@@ -1,36 +1,49 @@
 export class Student {
-    public firstName: string;
-    public lastName: string;
-    public rollno: number;
+    
+    public admissionNo: string;
+    public name: string;
+    public rollno: string;
+    public standard: string;
+    public section: string;
+    public gender: string;
     public dob: string;
     public fatherName: string;
     public motherName: string;
     public mobile: string;
     public email: string;
     public address: string;
-    public subjects: [];
+    public dateOfJoining: string;
+    public transport: string;
 
     constructor(
-        firstName: string,
-        lastName: string,
-        rollno: number,
+        admissionNo: string,
+        name: string,
+        rollno: string,
+        standard: string,
+        section: string,
+        gender: string,
         dob: string,
         fatherName: string,
         motherName: string,
         mobile: string,
         email: string,
         address: string,
-        subjects: [],
+        dateOfJoining: string,
+        transport: string
     ) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.admissionNo = admissionNo;
+        this.name = name;
         this.rollno = rollno;
+        this.standard = standard;
+        this.section = section;
+        this.gender = gender;
         this.dob = dob;
         this.fatherName = fatherName;
         this.motherName = motherName;
         this.mobile = mobile;
         this.email = email;
         this.address = address;
-        this.subjects = subjects;
+        this.dateOfJoining = dateOfJoining;
+        this.transport = transport;
     }
 }

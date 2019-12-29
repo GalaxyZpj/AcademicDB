@@ -1,0 +1,23 @@
+.container {
+    background-color: #a57a2a7c;
+    color: #292828;
+    font-size: 0.5cm;
+    padding: 4%;
+    margin-top: 1cm;
+}
+h1 {
+    font-size: 1.5cm;
+    font-weight: bold;
+}
+input {
+    background-color: #9b53019c;
+    font-weight: bold;
+}
+
+input:focus-within {
+    background-color: #e77b009c;
+    font-weight: bold;
+}
+input:hover {
+    background-color: #9b5301;
+}

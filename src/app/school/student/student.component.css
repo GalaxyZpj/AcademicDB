@@ -5,3 +5,19 @@
     padding: 5%;
     margin-top: 0.5cm;
 }
+.form-row {
+    align-content: center;
+}
+button {
+    background-color: rgba(197, 118, 0, 0.493);
+    font-weight: bold;
+    color: rgb(44, 44, 44);
+    padding: 3%;
+    font-size: large;
+    width: 7cm;
+}
+p {
+    color: rgb(43, 43, 43);
+    font-size: 0.8cm;
+    font-weight: bold;
+}

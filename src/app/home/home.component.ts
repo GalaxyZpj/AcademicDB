@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-  openRecords(link: string) {
+  openComponent(link: string) {
     this.router.navigate(['/', link]);
   }
 }

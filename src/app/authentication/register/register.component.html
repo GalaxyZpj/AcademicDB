@@ -1,0 +1,59 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-row center">
+            <h1><b>Registration Form</b></h1>
+        </div>
+        <hr>
+        <div class="form-group">
+            <div class="col">
+                <label for="username" class="col-form-label"><b>Username: </b></label>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" ngModel name="username" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col">
+                <label for="firstName" class="col-form-label"><b>First Name: </b></label>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" ngModel name="firstName" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col">
+                <label for="lastName" class="col-form-label"><b>Last Name: </b></label>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" ngModel name="lastName" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col">
+                <label for="mobile" class="col-form-label"><b>Mobile: </b></label>
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" ngModel name="mobile" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col">
+                <label for="email" class="col-form-label"><b>Email: </b></label>
+            </div>
+            <div class="col">
+                <input type="email" class="form-control" ngModel name="email" required email>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col">
+                <label for="password" class="col-form-label"><b>Password: </b></label>
+            </div>
+            <div class="col">
+                <input type="password" class="form-control" ngModel name="password" required minlength="6">
+            </div>
+        </div><br>
+        <div class="form-row" style="margin-left: 0.4cm;">
+            <button class="btn btn-primary" type="submit" style="width: 2.7cm;" [disabled]="!f.valid">Register</button>
+        </div>
+    </form>
+</div>

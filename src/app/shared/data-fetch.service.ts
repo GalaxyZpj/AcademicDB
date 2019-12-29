@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 
+import { School } from '../school/school.model';
+import { Student } from '../school/student/student.model';
+
 @Injectable({providedIn: 'root'})
 export class DataFetchService {
 
+  // below will move to RecordsService
   fetchDistricts(): string[] {
     return ['East', 'West', 'North', 'South'];
   }
@@ -77,19 +81,35 @@ export class DataFetchService {
     }
   }
 
-  fetchSchoolDetails(schoolId: string): { schoolcode: string,
-                                          name: string,
-                                          address: string,
-                                          subDistrict: string,
-                                          board: string,
-                                          principal: string,
-                                          teacherCount: number } {
-    return {  schoolcode: schoolId,
-              name: 'Oxford Public School',
-              address: 'Shivpuri Link Road, Gwalior, Madhya Pradesh',
-              subDistrict: 'Gwalior',
-              board: 'CBSE',
-              teacherCount: 267,
-              principal: 'Ms. Rekha Singh' }
+  // below will move to SchoolService
+  fetchSchoolDetails(schoolcode: string): School {
+    return new School(schoolcode, 
+                      'Oxford Public School',
+                      'Shivpuri Link Road, Gwalior, Madhya Pradesh',
+                      'Gwalior',
+                      'CBSE',
+                      'Ms. Rekha Singh',
+                      267);
   }
+
+  fetchStandardList(schoolcode: string): string[] {
+    return ['Class XII', 'Class XI', 'Class X', 'Class IX', 'Class VIII', 'Class VII', 'Class VI', 'Class V', 'Class IV', 'Class III', 'Class II', 'Class I'];
+  }
+
+  fetchStudentList(schoolcode: string, standard: string): {admissionNo: string, name: string}[] {
+    return [
+      { admissionNo: '18102001', name: 'Abhishek Jajoo' },
+      { admissionNo: '18102002', name: 'Abhishek Sinha' },
+      { admissionNo: '18102003', name: 'Aditya Agarwal' },
+      { admissionNo: '18102004', name: 'Akshansh Agarwal' },
+      { admissionNo: '18102005', name: 'Bharti Khandelwal' },
+    ];
+  }
+
+  // below will move to StudentService
+  fetchStudent(schoolcode: string, admissionNo: string) {
+    return new Student ('123','Abhishek Jajoo', '18102001', 'XII', 'A', 'Male', '19-09-2000', 'Father', 'Mother', 
+                   'XXXXXXXXXX', 'email@gmail.com', 'Sector-62, Noida, Uttar Pradesh', '20-04-2007', 'Bus');
+  }
+
 }
