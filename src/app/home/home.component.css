@@ -1,14 +1,24 @@
 .col-xs-12 {
     text-align: center;
-    background-color: rgba(0, 217, 255, 0.425);
+    background-color: rgba(148, 247, 242, 0.625);
     margin-left: auto;
     margin-right: auto;
     padding: 3cm;
     margin-top: 0.8cm;
+    height:650px;
+    width:1000px;
+    position: relative;
+    left:80px;
+    bottom:30px;
+    border-style: solid;
+    border-color: #01024e;
+    border-width: 5px;
 }
 h1 {
     font-size: 1.35cm;
     color: rgb(255, 145, 0);
+    font-family: "candara";
+    -webkit-text-stroke: 1px black;
 }
 h4 {
     color: rgb(116, 3, 104);

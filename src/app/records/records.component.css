@@ -11,6 +11,14 @@
 .col-xs-4{
   width:30%;
   padding: 1%;
+  position: relative;
+  left:50px;
+}
+
+hr
+{
+  position:relative;
+  bottom:30px;
 }
 
 h2{

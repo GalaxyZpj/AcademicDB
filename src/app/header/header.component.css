@@ -21,6 +21,9 @@ li a
  color:#f7be16;
  padding-right: 25px;
  padding-left: 25px;
+ position: relative;
+ bottom:22px;
+ left:30px;
 
 }
 
@@ -34,8 +37,4 @@ li a:hover
 .navbar-default
 {
   border:none;
-}
-.active
-{
-  background-color: red;
 }
