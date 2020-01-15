@@ -3,10 +3,38 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 body{
-  background:url("src\environments\bg5.jpg") ;
-
+  background:url("src\environments\bg1.jpg") ;
+  background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+overflow-y: scroll;
 }
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;
+}
+
+
 .center {
   display: flex;
   justify-content: center;
 }
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+/*.bgimg1
+{
+  background-image:url("src\environments\bg1.jpg") ;
+  min-height: 100%;
+  position: relative;
+  opacity: 0.35;
+  background-position: center;
+  background-size: cover;
+
+}*/

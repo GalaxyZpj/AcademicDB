@@ -1,5 +1,6 @@
+
 .container {
-    background-color: #a57a2a7c;
+    background-color:rgba(186, 235, 245,0.3);
     color: #292828;
     font-size: 0.6cm;
     padding: 5%;
@@ -10,12 +11,20 @@ h1 {
     font-weight: bold;
 }
 button {
-    background-color: rgba(197, 118, 0, 0.493);
+  background-color:#98e6fa;
+  color:#164a4f;
+  border-color:#164a4f;
     padding: 3%;
     font-size: x-large;
     font-weight: bold;
-    color: rgb(44, 44, 44);
-}
+    }
+
+button:hover
+  {
+      background-color: #175761;
+      color:#98e6fa;
+      border-color: #175761;
+  }
 p {
     color: rgb(43, 43, 43);
     font-size: 0.8cm;
@@ -35,7 +44,7 @@ li
 {
   font-size: 30px;
   text-align: center;
-  background-color: #c576007e;
+  background-color: #c576007f;
   color:#353535;
   width: 15cm;
 }
@@ -54,4 +63,75 @@ li:hover:not(.active)
   font-size: 16.5px;
   color: #132a70;
 
+}
+
+.form-row1 .col1 .col-form-label
+{
+  position: relative;
+  left:30vh;
+  bottom:12vh;
+
+}
+
+.form-row2 .col-form-label
+{
+  position: relative;
+  bottom:8vh;
+}
+.form-row2 .col1 .col-form-label
+{
+  position: relative;
+  bottom: 20vh;
+  left:30vh;
+}
+.form-row3 .col-form-label
+{
+
+  position: relative;
+  bottom:16vh;
+}
+.form-row3 .col1 .col-form-label
+{
+  position: relative;
+  bottom: 28vh;
+  left:30vh;
+}
+.form-row4 .col-form-label
+{
+  position: relative;
+  bottom:24vh;
+}
+.form-row4 .col1 .col-form-label
+{
+  position: relative;
+  bottom: 36vh;
+  left:30vh;
+}
+.form-row5 .col-form-label
+{
+  position: relative;
+  bottom:32vh;
+}
+.form-row5 .col1 .col-form-label
+{
+  position: relative;
+  bottom: 44vh;
+  left:30vh;
+}
+
+.form-row6 .col-form-label
+{
+  position: relative;
+  bottom:39vh;
+}
+.form-row6 .col1 .col-form-label
+{
+  position: relative;
+  bottom: 51vh;
+  left:30vh;
+}
+.form-row7
+{
+  position: relative;
+  bottom: 50vh
 }
