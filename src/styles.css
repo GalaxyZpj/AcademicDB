@@ -8,6 +8,7 @@ body{
 background-attachment: fixed;
 background-size: cover;
 overflow-y: scroll;
+overflow-x: hidden;
 }
 body::-webkit-scrollbar {
     display: none;
@@ -18,10 +19,10 @@ body {
 }
 
 
-.center {
+/*.center {
   display: flex;
   justify-content: center;
-}
+}*/
 body, html {
   height: 100%;
   margin: 0;
