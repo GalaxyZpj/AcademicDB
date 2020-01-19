@@ -144,15 +144,14 @@ h3 {
   position: relative;
   bottom:-90px;
 }
+
 .image {
   display: block;
   width: 8%;
-  max-width: 200px;
+  max-width: 100%;
   height: auto;
-
-
-
 }
+
 .f1
 {
   display: block;
