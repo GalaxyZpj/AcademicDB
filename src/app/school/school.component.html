@@ -3,13 +3,7 @@
         <div class="form-row">
             <div class="col">
                 <h1>
-                    {{ school }}
-                    <span class="float-right">
-                        <img src="https://oxfordpublicschool.net/sliders/OXFORD%20ps%20logo%20final2.png"
-                            alt="OXFORD"
-                            height="100px"
-                            width="100px">
-                    </span>
+                    {{ schoolInfo?.name }}
                 </h1>
                 <hr>
             </div>
@@ -17,32 +11,32 @@
         <div class="form-row1">
             <div class="col m-auto"><label class="col-form-label" for="schoolcode">School Code &nbsp; :</label></div>
             <div class="col-auto"><label class="col-form-label"></label></div>
-            <div class="col1"><label class="col-form-label" for="admissionNoValue">{{ schoolInfo.schoolcode }}</label></div>
+            <div class="col1"><label class="col-form-label" for="admissionNoValue">{{ schoolInfo?.schoolcode }}</label></div>
         </div>
         <div class="form-row2">
             <div class="col m-auto"><label class="col-form-label" for="address">Address &nbsp; :</label></div>
             <div class="col-auto"><label class="col-form-label"></label></div>
-            <div class="col1"><label class="col-form-label" for="nameValue">{{ schoolInfo.address }}</label></div>
+            <div class="col1"><label class="col-form-label" for="nameValue">{{ schoolInfo?.address }}</label></div>
         </div>
         <div class="form-row3">
             <div class="col m-auto"><label class="col-form-label" for="subDistrict">Sub District &nbsp; :</label></div>
             <div class="col-auto"><label class="col-form-label"></label></div>
-            <div class="col1"><label class="col-form-label" for="rollnoValue">{{ schoolInfo.subDistrict }}</label></div>
+            <div class="col1"><label class="col-form-label" for="rollnoValue">{{ schoolInfo?.subDistrict }}</label></div>
         </div>
         <div class="form-row4">
             <div class="col m-auto"><label class="col-form-label" for="board">Board &nbsp; :</label></div>
             <div class="col-auto"><label class="col-form-label"></label></div>
-            <div class="col1"><label class="col-form-label" for="standardValue">{{ schoolInfo.board }}</label></div>
+            <div class="col1"><label class="col-form-label" for="standardValue">{{ schoolInfo?.board }}</label></div>
         </div>
         <div class="form-row5">
             <div class="col m-auto"><label class="col-form-label" for="principal">Principal &nbsp; :</label></div>
             <div class="col-auto"><label class="col-form-label"></label></div>
-            <div class="col1"><label class="col-form-label" for="sectionValue">{{ schoolInfo.principal }}</label></div>
+            <div class="col1"><label class="col-form-label" for="sectionValue">{{ schoolInfo?.principal }}</label></div>
         </div>
         <div class="form-row6">
             <div class="col m-auto"><label class="col-form-label" for="gender">Teacher Count &nbsp; :</label></div>
             <div class="col-auto"><label class="col-form-label"></label></div>
-            <div class="col1"><label class="col-form-label" for="genderValue">{{ schoolInfo.teacherCount }}</label></div>
+            <div class="col1"><label class="col-form-label" for="genderValue">{{ schoolInfo?.teacherCount }}</label></div>
         </div>
         <hr>
         <div class="form-row7">
@@ -64,11 +58,11 @@
         <h1 class="center">Class List</h1><br>
             <div class="form-row">
                 <div class="col center">
-                    <ul class="list-group center">
+                    <ul class="list-group">
                         <li class="list-group-item center"
                             *ngFor="let standard of standardData;"
                             (click)="onSelectStandard(standard)">
-                            {{ standard }}
+                            {{ standard | uppercase }}
                         </li>
                     </ul>
                 </div>
@@ -78,14 +72,14 @@
         <h1 class="center">Student List</h1><br>
             <div class="form-row">
                 <div class="col center">
-                    <ul class="list-group center">
+                    <ul class="list-group">
                         <li class="list-group-item center"
                             *ngFor="let student of studentData;"
-                            (click)="onSelectStudent(student.admissionNo)">
+                            (click)="onSelectStudent(student)">
                             <div class="row">
-                                <div class="col-xs-4">{{ student.admissionNo }}</div>
+                                <div class="col-xs-4">{{ student }}</div>
                                 <div class="col">:</div>
-                                <div class="col-xs-8">{{ student.name }}</div>
+                                <div class="col-xs-8">{{ student }}</div>
                             </div>
                             <!-- {{ student.admissionNo }}: {{ student.name }} -->
                         </li>

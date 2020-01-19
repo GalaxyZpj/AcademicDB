@@ -5,9 +5,9 @@
         <ul class="list-group">
             <li class="list-group-item"
                 *ngFor="let dist of district;"
-                [ngClass]="{active: dist == districtSelected}"
-                (click)="onSelectDistrict(dist)">
-                {{ dist | uppercase}}
+                [ngClass]="{active: dist.key == districtSelected}"
+                (click)="onSelectDistrict(dist.key)">
+                {{ dist.key | uppercase}}
             </li>
         </ul>
     </div>
@@ -30,7 +30,7 @@
             <li class="list-group-item"
                 *ngFor="let school of schools;"
                 (click)="onSelectSchool(school)">
-                {{ school }}
+                {{ school.name }}
             </li>
         </ul>
     </div>
