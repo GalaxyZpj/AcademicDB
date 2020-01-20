@@ -14,6 +14,10 @@ import { TeacherComponent } from './school/teacher/teacher.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
+import { StudentAttendanceComponent } from './school/student/student-attendance/student-attendance.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { StudentListComponent } from './school/student-list/student-list.component';
+import { ClassListComponent } from './school/class-list/class-list.component';
 
 
 @NgModule({
@@ -28,6 +32,10 @@ import { RegisterComponent } from './authentication/register/register.component'
     AuthenticationComponent,
     LoginComponent,
     RegisterComponent,
+    StudentAttendanceComponent,
+    DashboardComponent,
+    StudentListComponent,
+    ClassListComponent,
   ],
   imports: [
     BrowserModule,
