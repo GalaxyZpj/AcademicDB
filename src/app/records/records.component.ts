@@ -14,33 +14,51 @@ export class RecordsComponent implements OnInit {
 
   districtSelected: string;
   subDistrictSelected: string;
-  schoolSelected: string;
+  schoolSelected: any;
 
-  private district: string[];
-  private subDistrict: string[];
-  private schools: string[];
+  district: string[];
+  subDistrict: string[];
+  schools: JSON[];
 
   constructor(private router: Router, private data: DataFetchService) { }
 
   ngOnInit() {
-    this.district = this.data.fetchDistricts();
+    // this.data.cloudantHttp(['district', 'districts']).subscribe(
+    //   (response: any) => {
+    //     this.district =  response.districts;
+    //   }
+    // );
+    this.data.cloudantHttp(['sikkim', '_all_docs']).subscribe(
+      response => {
+        this.district = response['rows'];
+      }
+    )
   }
 
   onSelectDistrict(dist: string) {
     this.districtSelected = dist;
-    this.subDistrict = this.data.fetchSubDistricts(dist);
+    this.data.cloudantHttp(['sikkim', dist]).subscribe(
+      response => {
+        this.subDistrict =  response['subdistricts'];
+      }
+    );
     this.districtChoosed = true;
   }
 
   onSelectSubDistrict(subDist: string) {
     this.subDistrictSelected = subDist;
-    this.schools = this.data.fetchSchools(subDist);
+    this.data.cloudantHttp(['schools', subDist]).subscribe(
+      response => {
+        this.schools =  response['schools'];
+      }
+    );
     this.subDistrictChoosed = true;
   }
 
-  onSelectSchool(school: string) {
-    this.schoolSelected = school;
-    this.router.navigate(['/school', this.districtSelected, this.subDistrictSelected, this.schoolSelected]);
+  onSelectSchool(school: any) {
+    this.schoolSelected = school.name;
+    console.log(typeof(this.schoolSelected))
+    let schoolcode = school.code;
+    this.router.navigate(['/school', this.districtSelected, this.subDistrictSelected, schoolcode]);
   }
-  
 }

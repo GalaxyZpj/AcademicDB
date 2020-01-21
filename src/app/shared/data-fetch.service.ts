@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { School } from '../school/school.model';
 import { Student } from '../school/student/student.model';
 
 @Injectable({providedIn: 'root'})
 export class DataFetchService {
+  constructor(private http: HttpClient) { }
 
   // below will move to RecordsService
   fetchDistricts(): string[] {
@@ -83,13 +84,21 @@ export class DataFetchService {
 
   // below will move to SchoolService
   fetchSchoolDetails(schoolcode: string): School {
-    return new School(schoolcode, 
-                      'Oxford Public School',
-                      'Shivpuri Link Road, Gwalior, Madhya Pradesh',
-                      'Gwalior',
-                      'CBSE',
-                      'Ms. Rekha Singh',
-                      267);
+    let school: School;
+    this.cloudantHttp([schoolcode, 'root:profile']).subscribe(
+      (response: any) => {
+        console.log(response);
+        school = new School( response.schoolcode, 
+                                    response.name,
+                                    response.address,
+                                    response.district,
+                                    response.board,
+                                    response.principal,
+                                    response.teacherCount );
+        console.log(school)
+      }
+    );
+    return school;
   }
 
   fetchStandardList(schoolcode: string): string[] {
@@ -107,9 +116,28 @@ export class DataFetchService {
   }
 
   // below will move to StudentService
-  fetchStudent(schoolcode: string, admissionNo: string) {
-    return new Student ('123','Abhishek Jajoo', '18102001', 'XII', 'A', 'Male', '19-09-2000', 'Father', 'Mother', 
-                   'XXXXXXXXXX', 'email@gmail.com', 'Sector-62, Noida, Uttar Pradesh', '20-04-2007', 'Bus');
-  }
+  // fetchStudent(schoolcode: string, admissionNo: string) {
+  //   return new Student ('123','Abhishek Jajoo', '18102001', 'XII', 'A', 'Male', '19-09-2000', 'Father', 'Mother', 
+  //                  'XXXXXXXXXX', 'email@gmail.com', 'Sector-62, Noida, Uttar Pradesh', '20-04-2007', 'Bus');
+  // }
 
+  // Miscelleneous
+  private url = 'https://869a3a9a-8356-4ae9-8dbf-06e2f727e1ba-bluemix.cloudant.com/'
+  // private apikey = 'ouldourivithiewhotsident';
+  // httpOptions = {
+  //   headers:  new HttpHeaders ({
+  //     'Content-Type': 'application/json',
+  //     'Authorisation': this.apikey
+  //   })
+  // };
+
+  cloudantHttp(args: string[]) {
+    let documentString: string = ''
+    for (let key of args) {
+      documentString = documentString + key + '/'
+    }
+    let final_url = this.url + documentString
+    console.log(final_url)
+    return this.http.get(final_url)
+  }
 }
