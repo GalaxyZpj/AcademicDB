@@ -3,7 +3,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 
 body {
-	background: #11255c;
+	background: transparent;
 	color: #fff;
 	font-weight: 300;
 	font-size: 1.5em;
@@ -11,6 +11,7 @@ body {
 	margin:0;
 	padding:0;
 	padding-bottom:40px;
+	width: 100%;
 }
 .description{
   line-height:40px;
@@ -127,8 +128,9 @@ a, button {
 
 .wrapper{
 	margin:0 auto;	
-	padding-left:12%;
-	padding-right:12%;
+	width: 100%;
+
+
 }
 .heading{
   font-size: 4em;
@@ -137,9 +139,9 @@ a, button {
 }
 
 .wrap{
-width: 830px;
+	width: 100%;
 height: auto;
-margin: 70px 0px;
+/* margin: 70px 0px; */
 float: left;
 }
 .fa{
@@ -148,7 +150,7 @@ color:#FFFFFF;
 div[class^="btn"]{
 float: left;
 margin: 0 10px 10px 0;
-height: 95px;
+height: 195px;
 position: relative;
 cursor: pointer;
 transition: all .4s ease;
@@ -157,15 +159,17 @@ border: solid 2px transparent;
 text-align:center;
 line-height:100px;
 }
-div[class^="btn"]:hover{
+/* div[class^="btn"]:hover{
 	opacity: 0.7;
-}
-div[class^="btn"]:active{
+} */
+div[class^="btn"]:hover{
 	
-  transform: scale(1.5);
+  transform: scale(1.2);
+  z-index: 100;
+
 }
-.btn-big{width: 200px;}
-.btn-small{width: 95px;}
+.btn-big{width: 350px;}
+.btn-small{width: 240px;}
 .last{margin-right: 0 !important;}
 .Start{
 color: white;
@@ -184,7 +188,7 @@ transition: all .3s ease;
 .label{
 	position: absolute;
 	color: white;
-	font: 500 12px sans-serif;
+	font: 500 20px sans-serif;
 	left: 10px;
   user-select: none;
 }
@@ -249,20 +253,7 @@ div[class^="icon"]{
   }
 }
 
-.photo img{
-  top: -4px;
-  left: -4px;
-  position: absolute;
-  opacity: 0;
-  animation: fade 8s ease-in-out infinite 8s;
-  z-index: 0;
-  border: solid 2px transparent;
-  transition: all .3s ease;
-}
 
-.photo img:hover{
-  border: solid 2px mintcream;
-}
 
 @keyframes fade{
   0%{
