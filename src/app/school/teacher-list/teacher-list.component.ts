@@ -12,33 +12,29 @@ export class TeacherListComponent implements OnInit {
 
   schoolcode: string;
 
-  // teacherList: [
-  //   {
-  //     name: string,
-  //     code: string
-  //   }
-  // ];
-  teacherList: any;
+  teacherData: { name: string, code: string }[];
+  // teacherData: any;
 
   constructor(private data: DataFetchService, private route: ActivatedRoute, private router: Router) { }
+  operation: string;
 
   ngOnInit() {
     this.route.queryParams.subscribe(
       params => {
         this.schoolcode = params['schoolcode'];
         this.division = params['division'];
+        this.operation = params['operation'];
       }
     );
     this.data.cloudantHttp([this.schoolcode, 'teacherDivision:'+this.division]).subscribe(
       request => {
-        this.teacherList = request['teachers'];
-        console.log(this.teacherList);
+        this.teacherData = request['teachers'];
       }
     );
   }
 
-  onSelectTeacher(teacher) {
-    
+  onSelectTeacher(teacher: string) {
+    this.router.navigate([this.operation], { queryParams: { 'teachercode': teacher }, queryParamsHandling: 'merge' });
   }
 
 }

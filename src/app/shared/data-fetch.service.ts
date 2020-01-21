@@ -137,7 +137,7 @@ export class DataFetchService {
       documentString = documentString + key + '/'
     }
     let final_url = this.url + documentString
-    console.log(final_url)
+    // console.log(final_url)
     return this.http.get(final_url)
   }
 }

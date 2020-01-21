@@ -2,7 +2,7 @@
     <h1>Student List</h1><br>
         <div class="form-row">
             <div class="col">
-                <ul class="list-group">
+                <ul class="list-group" *ngIf="studentData?.length != 0">
                     <li class="list-group-item"
                         *ngFor="let student of studentData;"
                         (click)="onSelectStudent(student.code)">
@@ -13,6 +13,7 @@
                         </div>
                     </li>
                 </ul>
+                <h3 *ngIf="studentData?.length == 0">No students to show</h3>
             </div>
         </div>
 </form>

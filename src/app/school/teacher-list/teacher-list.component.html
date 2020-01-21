@@ -2,9 +2,9 @@
     <h1>Teacher List</h1><br>
         <div class="form-row">
             <div class="col">
-                <ul class="list-group">
+                <ul class="list-group" *ngIf="teacherData?.length != 0">
                     <li class="list-group-item"
-                        *ngFor="let teacher of teacherList;"
+                        *ngFor="let teacher of teacherData;"
                         (click)="onSelectTeacher(teacher.code)">
                         <div class="row">
                             <div class="col-xs-4">{{ teacher.code }}</div>
@@ -13,6 +13,7 @@
                         </div>
                     </li>
                 </ul>
+                <h3 *ngIf="teacherData?.length == 0">No teachers to show</h3>
             </div>
         </div>
 </form>

@@ -24,7 +24,8 @@ export class StudentComponent implements OnInit {
     );
     this.data.cloudantHttp([this.schoolcode, 'student:' + this.admissionNo]).subscribe(
       request => {
-        this.student = new Student(this.admissionNo,
+        this.student = new Student(
+          this.admissionNo,
           request['name'],
           request['admission_no'],
           request['standard'],

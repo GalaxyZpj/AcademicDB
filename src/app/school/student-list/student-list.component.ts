@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-  studentData;
+  studentData: { name: string, code: string }[];
   schoolcode: string;
   standard: string;
   operation: string;
@@ -26,7 +26,6 @@ export class StudentListComponent implements OnInit {
     this.data.cloudantHttp([this.schoolcode, 'studentList:'+this.standard]).subscribe(
       request => {
         this.studentData = request['students'];
-        console.log(this.studentData);
       }
     );
   }
