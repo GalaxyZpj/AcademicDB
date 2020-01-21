@@ -1,0 +1,14 @@
+<form #teacherDivisionList>
+    <h1>Teacher Divison List</h1><br>
+        <div class="form-row">
+            <div class="col">
+                <ul class="list-group">
+                    <li class="list-group-item"
+                        *ngFor="let division of teacherDivisions;"
+                        (click)="onSelectDivision(division)">
+                        {{ division | uppercase }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+</form>

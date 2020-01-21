@@ -18,6 +18,8 @@ import { StudentAttendanceComponent } from './school/student/student-attendance/
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentListComponent } from './school/student-list/student-list.component';
 import { ClassListComponent } from './school/class-list/class-list.component';
+import { TeacherDivisionListComponent } from './school/teacher-division-list/teacher-division-list.component';
+import { TeacherListComponent } from './school/teacher-list/teacher-list.component';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { ClassListComponent } from './school/class-list/class-list.component';
     DashboardComponent,
     StudentListComponent,
     ClassListComponent,
+    TeacherDivisionListComponent,
+    TeacherListComponent,
   ],
   imports: [
     BrowserModule,

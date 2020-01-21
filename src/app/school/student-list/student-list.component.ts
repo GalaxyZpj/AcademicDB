@@ -26,6 +26,7 @@ export class StudentListComponent implements OnInit {
     this.data.cloudantHttp([this.schoolcode, 'studentList:'+this.standard]).subscribe(
       request => {
         this.studentData = request['students'];
+        console.log(this.studentData);
       }
     );
   }
