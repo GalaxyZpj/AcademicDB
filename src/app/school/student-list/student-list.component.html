@@ -1,0 +1,18 @@
+<form #studentList>
+    <h1>Student List</h1><br>
+        <div class="form-row">
+            <div class="col">
+                <ul class="list-group">
+                    <li class="list-group-item"
+                        *ngFor="let student of studentData;"
+                        (click)="onSelectStudent(student.code)">
+                        <div class="row">
+                            <div class="col-xs-3">{{ student.code }} : </div>
+                            <div class="col-xs-1">:</div>
+                            <div class="col-xs-8">{{ student.name }}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</form>

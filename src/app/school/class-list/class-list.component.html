@@ -1,0 +1,14 @@
+<form #standardList>
+    <h1>Class List</h1><br>
+        <div class="form-row">
+            <div class="col">
+                <ul class="list-group">
+                    <li class="list-group-item"
+                        *ngFor="let standard of standardData;"
+                        (click)="onSelectStandard(standard)">
+                        {{ standard | uppercase }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+</form>
