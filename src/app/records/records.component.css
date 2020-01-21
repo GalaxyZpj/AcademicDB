@@ -52,11 +52,11 @@ li:hover:not(.active)
   font-size: 20.5px;
   color: #132a70;
   font-weight: normal;
-
 }
 .list-group
 {
   overflow-y: scroll;
+  overflow-x:none;
   height: 200px;
   border-radius: 3%;
 
@@ -68,3 +68,37 @@ li:hover:not(.active)
 .list-group {
     -ms-overflow-style: none;
 }
+
+@media only screen and (max-device-width: 1024px) {
+.col-xs-4
+{ position: relative;
+  left:3vw;}
+
+h2
+{ font-size: 22px;
+  position: relative;
+  bottom:10px;
+  color:#162121;}
+
+hr{display: none;}
+.list-group-item.active{ font-size: 16px;}
+.row{height:350px;}
+
+}
+
+@media(max-width:950px){
+.col-xs-4
+{
+  position: relative;
+  left:25px;
+}
+hr{display: none;}
+h2{
+  position: relative;
+  font-size: 25px;
+  bottom:10px;
+  color:#162121;
+}
+.row{height:350px;}
+
+  }

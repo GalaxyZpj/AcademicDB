@@ -5,20 +5,62 @@
     font-size: 0.5cm;
     padding: 4%;
     margin-top: 1cm;
+    width:60%;
 }
 h1 {
     font-size: 1.5cm;
     font-weight: bold;
 }
 input {
-    background-color: #9b53019c;
-    font-weight: bold;
+    background-color: rgba(219, 250, 255,0.7);
+    color:#1e114f;
+    width: 90%;
+    height:35px;
+    margin: auto;
+    box-shadow: 0 0 30px #000000b3;
 }
 
 input:focus-within {
-    background-color: #e77b009c;
-    font-weight: bold;
+    background-color:rgba(230, 255, 255,0.9);
+    color:#1e114f;
 }
 input:hover {
-    background-color: #9b5301;
+    background-color:rgba(230, 255, 255,0.9);
+    color:#1e114f;
+}
+.btn.btn-primary {
+
+    display: inline-block;
+    padding: 15px 10px;
+    font-size: 17px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: black;
+    opacity: 1;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #999;
+    position: relative;
+    left:12vw;
+    bottom:15px;
+    font-family: "Dosis",sans-serif;
+  }
+
+.btn.btn-primary:hover {background-color: #282d38}
+
+.btn.btn-primary:active {
+    background-color: #272b31;
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+
+  }
+
+@media(max-width:950px){
+  .container{width:90%;
+     position: relative;
+    bottom:7vh;}
+  .btn.btn-primary{position: relative;left:22vw;}
 }

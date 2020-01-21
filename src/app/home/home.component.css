@@ -44,6 +44,13 @@ body, html {
   margin: 0;
   font: 400 15px/1.8 "Lato", sans-serif;
   color: #777;
+  -ms-overflow-style: none;
+  overflow-y: scroll;
+  overflow-x:none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 .features
 {
@@ -137,6 +144,9 @@ h3 {
 .top-container
 {
   background-image: url("src\environments\bg12.jpg");
+  position: absolute;
+  top:0px;
+  border: none;
 
 }
 .heading
@@ -150,6 +160,44 @@ h3 {
   width: 8%;
   max-width: 100%;
   height: auto;
+}
+
+.formobile
+{
+  display: none;
+  color: white;
+  font-weight:100;
+  position: relative;
+  left: 10vw;
+  bottom:20px;
+}
+
+@media(max-width:950px){
+  .f1 .image{
+    display: none;
+    position: relative;
+    left:-170px;
+    width: 15%;
+  }
+
+  .f1 p, .f2 p, .f3 p,.f3 .image,.f2 .image,.f1 .image
+  {
+    display: none;
+  }
+
+h3, p
+{
+  position: relative;
+  bottom:25px;
+}
+
+.formobile
+{
+  display: block;
+  width: 50vw;
+
+}
+
 }
 
 .f1
@@ -188,14 +236,17 @@ h3 {
   top:130px;
 
 }
-
-/* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {
   .bgimg-1, .bgimg-2, .bgimg-3 {
     background-attachment: scroll;
   }
-}
+  .registerbutton
+  {
+    position: relative;
+    top:10px;
+  }
 
+}
 button
 {
   border: 2px solid black;
@@ -208,7 +259,7 @@ button
 
 button{
 
-    width: 150px;
+    width: 130px;
     height: 60px;
     outline: none;
     cursor: pointer;
@@ -228,8 +279,8 @@ button{
   .btn.btn-danger:hover
   {
     background-color:#98e6fa;
-    color:#164a4f;
-    border-color:#164a4f;
+    color:#133e42;
+    border-color:#133e42;
 
   }
 

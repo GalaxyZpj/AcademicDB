@@ -29,12 +29,23 @@
         </p>
         </div>
 
+
         <div class="f3">
         <img src="assets\img\f3.png" class="image">
         <p style="position:relative; left:-10px; font-size:14px;">
          Upload Marks
           </p>
           </div>
+
+        <div class="formobile">
+          <ul>
+            <li>View Student Records</li>
+            <li>Mark Attendance</li>
+            <li>Upload Marks</li>
+          </ul>
+
+          </div>
+
     </div>
 
 </div>
@@ -45,7 +56,7 @@
     <h4>Portal under construction. <br><br> For now, please use the below buttons to access the non-linked components of the app ;)</h4><br>
     <button class="btn btn-danger" (click)="openComponent('records')">Records</button> |
     <button class="btn btn-danger" (click)="openComponent('login')">Login</button> |
-    <button class="btn btn-danger" (click)="openComponent('register')">Register</button>
+    <button class="btn btn-danger registerbutton" (click)="openComponent('register')">Register</button>
   <!--<span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">LESS HEIGHT</span>-->
   </div>
 </div>
@@ -59,7 +70,7 @@
 <div class="bgimg-3">
   <div class="caption">
     <h4>Below mentioned trees have been linked.</h4><br>
-    <h5>-> Records Tree 1 <-</h5>
+    <!--<h5>-> Records Tree 1 <-</h5>-->
     <p>district > subdistrict > school > schoolDetails > studentRecords (class list) > studentList > studentDetails</p>
   <!--<span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">SCROLL UP</span>-->
   </div>
@@ -67,7 +78,7 @@
 
 <div style="position:relative;">
   <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;  position:relative; bottom:29px">
-  <p style="text-align:center; font-family:Bookman">MADE BY JIIT_PUSH
+  <p style="text-align:center;">MADE BY JIIT_PUSH
     <br /><br />
     <a href="#" class="fa fa-facebook"></a>
 <a href="#" class="fa fa-twitter"></a>

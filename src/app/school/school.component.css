@@ -2,13 +2,21 @@
 .container {
     background-color:rgba(186, 235, 245,0.3);
     color: #292828;
-    font-size: 0.6cm;
+    font-size:0.6cm;
     padding: 5%;
     margin-top: 0.5cm;
+    border-radius: 1%;
+    box-shadow: 1px 2px 15px grey;
+    width: 70%;
+    position: relative;
+    bottom:2vh;
+
 }
 h1 {
     font-size: 2cm;
     font-weight: bold;
+text-shadow: 3px 2px 3px grey;
+
 }
 button {
   background-color:#98e6fa;
@@ -42,27 +50,41 @@ p {
 }
 li
 {
-  font-size: 30px;
+  font-size: 15.5px;
   text-align: center;
-  background-color: #c576007f;
-  color:#353535;
-  width: 15cm;
+  background-color: #edfafc;
+  color:#164a4f;
 }
 
 li:hover:not(.active)
 {
-  background-color:#ecae02;
+  background-color:#badbff;
   opacity:0.8;
   color:black;
 }
 
 .list-group-item.active
 {
-  background-color:rgb(0, 248, 227);
+  background-color:rgba(186, 235, 245,0.3);
   border: none;
-  font-size: 16.5px;
+  font-size: 20.5px;
   color: #132a70;
+  font-weight: normal;
+}
+.list-group
+{
+  overflow-y: scroll;
+  overflow-x:none;
+  height:600px;
+  border-radius: 3%;
 
+}
+.list-group::-webkit-scrollbar {
+    display: none;
+}
+
+.list-group {
+    -ms-overflow-style: none;
 }
 
 .form-row1 .col1 .col-form-label
@@ -134,4 +156,83 @@ li:hover:not(.active)
 {
   position: relative;
   bottom: 50vh
+}
+.col-auto{display:none;}
+.col.m-auto{ color:white;
+margin: 18px;
+font-family: Arial;
+text-shadow: 1px 1px 5px black;
+}
+.col1{color: white;text-shadow: 1px 1px 1px black;
+margin-top: 18px;
+margin-bottom: 18px;
+margin-left: 0;
+margin-right: 0;
+font-family:sans-serif;
+position: relative;
+top:3vh;left:1.5vw;
+}
+
+.col.m-auto1{position: relative; top:5vh;}
+
+button
+{
+  border: 2px solid black;
+  color: black;
+  &:hover {
+    background-color: black;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+button{
+
+    width: auto;
+    height: 60px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: .5s;
+    font-size: 24px;
+    border-radius: 5px;
+    font-family: "Lato",sans-serif;
+    &:hover{
+      border: none;
+      color: white;
+      font-size: 28px;
+      transform:scale(1.1);
+    }
+  }
+
+  .btn.btn-danger:hover
+  {
+    background-color:#98e6fa;
+    color:#133e42;
+    border-color:#133e42;
+
+  }
+
+
+
+@media(max-width:950px){
+  .container{width: 100%;position: relative;
+  bottom:10vh;}
+  .col1{position: relative;
+  top:3.5vh;
+  left:2vw;
+}
+.col.m-auto1{position: relative; top:5vh;}
+}
+
+@media only screen and (max-device-width: 1024px) {
+  h1{font-size:15vw;}
+  .container{width: 100%;position: relative;
+  bottom:10vh;}
+  .col1{position: relative;
+  top:4.5vh;
+  left:-5vw;
+}
+.col.m-auto1{position: relative; top:5vh;}
+.btn.btn-danger{position: relative;top:1vh;left:-8vw;}
+
 }
