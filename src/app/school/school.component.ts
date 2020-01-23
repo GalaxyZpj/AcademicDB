@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataFetchService } from '../shared/data-fetch.service';
 import { School } from './school.model';
 
+declare function setDistricts(): any;
+  
 @Component({
   selector: 'app-school',
   templateUrl: './school.component.html',
@@ -18,6 +20,7 @@ export class SchoolComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private data: DataFetchService) { }
 
   ngOnInit() {
+
     this.route.queryParams.subscribe(
       params => {
         this.schoolcode = params['schoolcode'];
@@ -25,7 +28,7 @@ export class SchoolComponent implements OnInit {
     );
     this.data.cloudantHttp([this.schoolcode, 'root:profile']).subscribe(
       (response: any) => {
-        console.log(response);
+        // console.log(response);
         this.school = new School(response.schoolcode,
           response.name,
           response.address,

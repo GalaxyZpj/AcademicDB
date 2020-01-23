@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataFetchService } from '../shared/data-fetch.service';
 
+declare function sendDistricts(): any;
+
 @Component({
   selector: 'app-records',
   templateUrl: './records.component.html',
@@ -16,26 +18,25 @@ export class RecordsComponent implements OnInit {
   subDistrictSelected: string;
   schoolSelected: any;
 
-  district: string[];
+  district: any;
   subDistrict: string[];
   schools: JSON[];
+
 
   constructor(private router: Router, private data: DataFetchService) { }
 
   ngOnInit() {
-    // this.data.cloudantHttp(['district', 'districts']).subscribe(
-    //   (response: any) => {
-    //     this.district =  response.districts;
+    // this.data.cloudantHttp(['sikkim', '_all_docs']).subscribe(
+    //   response => {
+    //     this.district = response['rows'];
     //   }
     // );
-    this.data.cloudantHttp(['sikkim', '_all_docs']).subscribe(
-      response => {
-        this.district = response['rows'];
-      }
-    )
+    this.district = sendDistricts();
+    console.log(this.district);
   }
 
   onSelectDistrict(dist: string) {
+    // console.log(this.d);
     this.districtSelected = dist;
     this.data.cloudantHttp(['sikkim', dist]).subscribe(
       response => {

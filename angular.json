@@ -49,7 +49,9 @@
               "src/custom-theme.scss",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/pouchdb.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -114,7 +116,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/pouchdb.js"
+            ]
           }
         },
         "lint": {
