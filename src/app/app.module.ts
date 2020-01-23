@@ -20,6 +20,7 @@ import { StudentListComponent } from './school/student-list/student-list.compone
 import { ClassListComponent } from './school/class-list/class-list.component';
 import { TeacherDivisionListComponent } from './school/teacher-division-list/teacher-division-list.component';
 import { TeacherListComponent } from './school/teacher-list/teacher-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { TeacherListComponent } from './school/teacher-list/teacher-list.compone
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
