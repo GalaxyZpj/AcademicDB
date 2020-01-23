@@ -5,12 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './homepage.component.html',
   styleUrls: [
     './homepage.component.css',
-    // 'assets/Components/Homepage/lib/bootstrap/css/bootstrap.min.css',
-    // 'assets/Components/Homepage/lib/animate/animate.min.css',
-    // 'assets/Components/Homepage/lib/font-awesome/css/font-awesome.min.css',
-    // 'assets/Components/Homepage/lib/ionicons/css/ionicons.min.css',
-    // 'assets/Components/Homepage/lib/magnific-popup/magnific-popup.css',
-    // 'assets/Components/Homepage/css/style.css'
+    './new/lib/animate.min.css',
+    './new/lib/font-awesome.min.css',
+    './new/lib/ionicons.min.css',
+    './new/lib/magnific-popup.css',
+    './new/lib/style.css'
   ]
 })
 export class HomepageComponent implements OnInit {
