@@ -18,7 +18,7 @@ export class StudentListComponent implements OnInit {
     this.route.queryParams.subscribe(
       params => {
         this.schoolcode = params['schoolcode'];
-        this.standard = params['standard'];
+        this.standard = params['listcode'];
         this.operation = params['operation'];
       }
     );

@@ -10,13 +10,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ClassListComponent implements OnInit {
   schoolcode: string;
   standardData: string[];
-
+  chooser: string;
+  chooserURL: string;
+  
   constructor(private data: DataFetchService, private route: ActivatedRoute, private router: Router) { }
-
   ngOnInit() {
     this.route.queryParams.subscribe(
       params => {
         this.schoolcode = params['schoolcode'];
+        this.chooser = params['chooser'];
       }
     )
     this.data.cloudantHttp([this.schoolcode, 'root:class_list']).subscribe(
@@ -27,6 +29,14 @@ export class ClassListComponent implements OnInit {
   }
 
   onSelectStandard(standard: string) {
-    this.router.navigate(['studentList'], { queryParams: { 'standard': standard }, queryParamsHandling: 'merge' });
+    
+    if (this.chooser == 'chooser') {
+      this.chooserURL = 'chooser';
+    } else {
+      this.chooserURL = 'studentList';
+    }
+
+    // this.router.navigate(['studentList'], { queryParams: { 'standard': standard }, queryParamsHandling: 'merge' });
+    this.router.navigate([this.chooserURL], { queryParams: { 'elementType': 'studentList', 'listcode': standard }, queryParamsHandling: 'merge' });
   }
 }

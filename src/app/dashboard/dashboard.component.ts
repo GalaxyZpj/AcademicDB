@@ -12,8 +12,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
   }
-  onClickTile(operation: string, listType: string) {
-    
+  onClickTile(operation: string, listType: string, chooser: string) {
     let goToPage: string; 
     
     switch(operation) {
@@ -24,7 +23,6 @@ export class DashboardComponent implements OnInit {
         goToPage = listType;
     }
 
-    this.router.navigate([goToPage], { queryParams: { 'schoolcode': this.schoolcode, 'operation': operation } });
-  
+    this.router.navigate([goToPage], { queryParams: { 'schoolcode': this.schoolcode, 'operation': operation, 'chooser': chooser } });
   }
 }

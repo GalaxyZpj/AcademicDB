@@ -10,12 +10,16 @@ import { DataFetchService } from 'src/app/shared/data-fetch.service';
 export class TeacherDivisionListComponent implements OnInit {
   schoolcode: string;
   teacherDivisions: string[];
+  chooser: string;
+  chooserURL: string;
+
   constructor(private router: Router, private data: DataFetchService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(
       params => {
         this.schoolcode = params['schoolcode'];
+        this.chooser = params['chooser'];
       }
     );
     this.data.cloudantHttp([this.schoolcode, 'root:teacherDivision']).subscribe(
@@ -26,7 +30,14 @@ export class TeacherDivisionListComponent implements OnInit {
   }
 
   onSelectDivision(division: string) {
-    this.router.navigate(['teacherList'], { queryParams: { 'division': division }, queryParamsHandling: 'merge' });
+
+    if (this.chooser == 'chooser') {
+      this.chooserURL = 'chooser';
+    } else {
+      this.chooserURL = 'teacherList';
+    }
+
+    // this.router.navigate(['teacherList'], { queryParams: { 'division': division }, queryParamsHandling: 'merge' });
+    this.router.navigate([this.chooserURL], { queryParams: { 'elementType': 'teacherList', 'listcode': division }, queryParamsHandling: 'merge' });
   }
-  
 }

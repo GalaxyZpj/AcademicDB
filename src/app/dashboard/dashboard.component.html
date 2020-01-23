@@ -23,18 +23,18 @@
       <div class="wrap">
         <h1 class="Start">School Dashboard</h1>
        
-        <div class="btn-big red"> <i class="fa fa-envelope fa-2x"></i> <span class="label bottom" (click)="onClickTile('studentProfile', 'classList')">View Student Profile</span> </div>
-        <div class="btn-big blue"> <i class="fa fa-calendar fa-2x"></i> <span class="label bottom" (click)="onClickTile('studentAttendance', 'classList')">View Student Attendance</span> </div>
-        <div class="btn-big orange"> <i class="fa fa-windows fa-2x"></i> <span class="label bottom" (click)="onClickTile('academicPerformance', 'classList')">Academic Performance</span> </div>
+        <div class="btn-big red"> <i class="fa fa-envelope fa-2x"></i> <span class="label bottom" (click)="onClickTile('studentProfile', 'classList', 'none')">View Student Profile</span> </div>
+        <div class="btn-big blue"> <i class="fa fa-calendar fa-2x"></i> <span class="label bottom" (click)="onClickTile('studentAttendance', 'classList', 'chooser')">View Student Attendance</span> </div>
+        <div class="btn-big orange"> <i class="fa fa-windows fa-2x"></i> <span class="label bottom" (click)="onClickTile('academicPerformance', 'classList', 'chooser')">Academic Performance</span> </div>
 
-        <div class="btn-small green"> <i class="fa fa-windows fa-2x"></i> <span class="label bottom" (click)="onClickTile('teacherProfile', 'teacherDivisionList')">View Teacher Profile</span> </div>
-        <div class="btn-big blue last"> <i class="fa fa-umbrella fa-2x"></i> <span class="label bottom" (click)="onClickTile('teacherAttendance', 'teacherDivisionList')">View Teacher Attendance</span> </div>
-        <div class="btn-big red-light"> <i class="fa fa-wrench fa-2x"></i> <span class="label bottom" (click)="onClickTile('assignedClasses', 'teacherDivisionList')">View Teacher's Assigned Classes</span> </div>
+        <div class="btn-small green"> <i class="fa fa-windows fa-2x"></i> <span class="label bottom" (click)="onClickTile('teacherProfile', 'teacherDivisionList', 'none')">View Teacher Profile</span> </div>
+        <div class="btn-big blue last"> <i class="fa fa-umbrella fa-2x"></i> <span class="label bottom" (click)="onClickTile('teacherAttendance', 'teacherDivisionList', 'chooser')">View Teacher Attendance</span> </div>
+        <div class="btn-big red-light"> <i class="fa fa-wrench fa-2x"></i> <span class="label bottom" (click)="onClickTile('assignedClasses', 'teacherDivisionList', 'chooser')">View Teacher's Assigned Classes</span> </div>
 
-        <div class="btn-big purple"> <i class="fa fa-video-camera fa-2x"></i> <span class="label bottom" (click)="onClickTile('schoolProfile', 'school')">View School Profile</span> </div>
-        <div class="btn-small orange"> <i class="fa fa-music fa-2x"></i> <span class="label bottom" (click)="onClickTile('addClass', 'school')">Add Class</span> </div>
-        <div class="btn-small green-bright last"> <i class="fa fa-gamepad fa-2x"></i> <span class="label bottom" (click)="onClickTile('addStudent', 'school')">Add Student</span> </div>
-        <div class="btn-small blue"> <i class="fa fa-twitter fa-2x"></i> <span class="label bottom" (click)="onClickTile('addTeacher', 'school')">Add Teacher</span> </div>
+        <div class="btn-big purple"> <i class="fa fa-video-camera fa-2x"></i> <span class="label bottom" (click)="onClickTile('schoolProfile', 'school', 'none')">View School Profile</span> </div>
+        <div class="btn-small orange"> <i class="fa fa-music fa-2x"></i> <span class="label bottom" (click)="onClickTile('addClass', 'school', 'none')">Add Class</span> </div>
+        <div class="btn-small green-bright last"> <i class="fa fa-gamepad fa-2x"></i> <span class="label bottom" (click)="onClickTile('addStudent', 'school', 'none')">Add Student</span> </div>
+        <div class="btn-small blue"> <i class="fa fa-twitter fa-2x"></i> <span class="label bottom" (click)="onClickTile('addTeacher', 'school', 'none')">Add Teacher</span> </div>
 
         </div>
       </div>
