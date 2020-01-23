@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataFetchService } from '../shared/data-fetch.service';
 import { School } from './school.model';
 
-
 @Component({
   selector: 'app-school',
   templateUrl: './school.component.html',

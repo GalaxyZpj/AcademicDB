@@ -22,7 +22,7 @@ export class TeacherListComponent implements OnInit {
     this.route.queryParams.subscribe(
       params => {
         this.schoolcode = params['schoolcode'];
-        this.division = params['division'];
+        this.division = params['listcode'];
         this.operation = params['operation'];
       }
     );
