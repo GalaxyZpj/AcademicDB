@@ -1,0 +1,14 @@
+.list-group-item{
+    width: 35rem;
+    left: 15vw;
+    background: linear-gradient( rgba(36, 142, 199,0.5));
+}
+
+.head{
+    left: 20vw;
+    width: 30rem;
+    align-content: center;
+    text-align: center;
+    font-weight: bolder;
+    /* background: linear-gradient(0deg, rgba(36, 142, 199,0.5),#bfd5e0 80%); */
+}
