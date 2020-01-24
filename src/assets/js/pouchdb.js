@@ -18081,7 +18081,7 @@ retry: true
     for(i=0;i<ed1["docs"].length;i++){
         l.push(ed1["docs"][i]["_id"]);
     }
-    return l;
+  
   }).catch(function(err){
     return err;
   })
@@ -18158,13 +18158,17 @@ db.find({selector:
 }).on('error', function (err) {
 console.log(err);
 })
+console.log("yaha hai madarchod");
 return l;
 }
 
 
 // fetch subdistrics start
 async function sendSubDistrict(district) {
-  var x=[];
+  let x=[];
+  let ed;
+  let ed1;
+  let ed2;
   var rep = PouchDB.replicate(api.concat("sikkim"),"sikkim", {
     live: true,
     retry: true
@@ -18180,14 +18184,27 @@ async function sendSubDistrict(district) {
         }
     }).then(function (result) {
      console.log(result);
-     x= result;
-     return x;
+    // ed=JSON.stringify(result);
+    // ed1=JSON.parse(ed);
+    // ed2=JSON.stringify(ed1["docs"]);
+
+      console.log(result["docs"][0])
+
+    for(i=0;i<result["docs"][0]["subdistricts"].length;i++){
+      x.push(result["docs"][0]["subdistricts"][i]);
+      
+  }
+
+  console.log(x);
+  return x;
+   
     }).catch(function (err) {
       console.log(err);
     });
     
   
   }).on('active', function () {
+    console.log("active");
     // replicate resumed (e.g. new changes replicating, user went back online)
   }).on('denied', function (err) {
     // a document failed to replicate (e.g. due to permissions)
@@ -18227,6 +18244,8 @@ async function sendSubDistrict(district) {
   }).on('error', function (err) {
     // handle error
     console.log(err)
+    
   });
+  return x;
 }
 // fetch subdistricts complete
