@@ -54,6 +54,7 @@ export class RecordsComponent implements OnInit {
       this.subDistrict = result;
       console.log(this.subDistrict);
     })
+   
 
     // this.subDistrict = sendSubDistrict(dist);
     // console.log(this.subDistrict);
