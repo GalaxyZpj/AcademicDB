@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { DataFetchService } from '../shared/data-fetch.service';
 
 declare function sendDistricts(): any;
-declare function subdistrict2(district): any;
+declare function sendSubDistrict(district): Promise<any>;
 
 
 @Component({
@@ -50,18 +50,13 @@ export class RecordsComponent implements OnInit {
     //   }
     // );
 
-    // this.subDistrict = subdistrict(dist)['subdistricts'];
-    // console.log(this.subDistrict, typeof(this.subDistrict));
-    
-    // let x = new Promise(res => {
-    //   this.subDistrict = subdistrict2(dist);
-    // })
-
-    subdistrict2(dist).then(result => {
+    sendSubDistrict(dist).then(result => {
       this.subDistrict = result;
+      console.log(this.subDistrict);
     })
-    
-    // this.subDistrict = subdistrict2(dist);
+
+    // this.subDistrict = sendSubDistrict(dist);
+    // console.log(this.subDistrict);
 
     this.districtChoosed = true;
   }
