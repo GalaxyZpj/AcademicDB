@@ -18074,7 +18074,7 @@ async function subdistrict2(district) {
 }
 
 //fetch districs
-async function district(){
+async function senddistrict(){
   let l=[];
   let ed;
   let ed1;
@@ -18083,14 +18083,19 @@ async function district(){
 live: true,
 retry: true
 }).on('change', function (info) {
+  console.log('Changed');
 // handle change
 }).on('paused', function (err) {
+  console.log('Paused');
 // replication paused (e.g. replication up to date, user went offline)
 }).on('active', function () {
+  console.log('Active');
 // replicate resumed (e.g. new changes replicating, user went back online)
 }).on('denied', function (err) {
+  console.log('Denied');
 // a document failed to replicate (e.g. due to permissions)
 }).on('complete', function (info) {
+  console.log('Complete');
 var db = new PouchDB("sikkim");
 db.find({selector:
   {
@@ -18109,9 +18114,11 @@ db.find({selector:
 }).catch(function(err){
   return err;
 })
-return l;
+// return l;
 
 
 }).on('error', function (err) {
-console.log(err;
-});
+console.log(err);
+})
+return l;
+}

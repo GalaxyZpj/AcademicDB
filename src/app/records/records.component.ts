@@ -4,6 +4,7 @@ import { DataFetchService } from '../shared/data-fetch.service';
 
 declare function sendDistricts(): any;
 declare function subdistrict2(district): any;
+declare function senddistrict(): any;
 
 @Component({
   selector: 'app-records',
@@ -32,7 +33,12 @@ export class RecordsComponent implements OnInit {
     //     this.district = response['rows'];
     //   }
     // );
-    this.district = sendDistricts();
+    // this.district = sendDistricts();
+    senddistrict().then(result => {
+  
+      this.district = result;
+    })
+
     console.log(this.district);
   }
 
