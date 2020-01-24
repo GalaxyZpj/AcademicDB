@@ -18052,64 +18052,7 @@ function sendDistricts() {
   return l;
 }
 
-var subDistrict;
 
-function subdistrict(district){
-  let ed;
-  let ed1;
-  let ed2;
-  var sync = PouchDB.sync("sikkim",api.concat("sikkim"), {
-     live: true,
-     retry: true
-   }).on('change', function (info) {
-     console.log("change chala");
-   }).on('paused', function (err) {
-     // replication paused (e.g. replication up to date, user went offline)
-   }).on('active', function () {
-     // replicate resumed (e.g. new changes replicating, user went back online)
-   }).on('denied', function (err) {
-     // a document failed to replicate (e.g. due to permissions)
-   }).on('complete', function (info) {
-    console.log("complete")
-   }).on('error', function (err) {
-     // handle error
-   });
-   var db = new PouchDB("sikkim");
- db.find({selector:
-  {
-      "_id":district
-  }
-}).then(function(result){
-  // ed=JSON.stringify(result);
-  // ed1=JSON.parse(ed);
-  // subDistrict=ed1["docs"]["0"]["subdistricts"];
-  subDistrict = result['docs']['0']['subdistricts'];
-  console.log(subDistrict);
-}).catch(function(err){
-  return(err)
-})
-  console.log(subDistrict);
-  return subDistrict;
-}
-
-// function subdistrict2(district) {
-//   var db = new PouchDB("sikkim");
-//   let x;
-
-//   db.find({selector:
-//     {
-//         "_id":district
-//     }
-//   }, async function (err, result) {
-//     if (err) { return console.log(err); }
-//     x = await result['docs']['0']['subdistricts'];
-//     return x;
-  
-//   });
-
-//   console.log(x);
-//   return x;
-// }
 
 
 async function subdistrict2(district) {
@@ -18130,10 +18073,45 @@ async function subdistrict2(district) {
   return x;
 }
 
+//fetch districs
+async function district(){
+  let l=[];
+  let ed;
+  let ed1;
+  let ed2;
+  var rep = PouchDB.replicate(api.concat("sikkim"),"sikkim", {
+live: true,
+retry: true
+}).on('change', function (info) {
+// handle change
+}).on('paused', function (err) {
+// replication paused (e.g. replication up to date, user went offline)
+}).on('active', function () {
+// replicate resumed (e.g. new changes replicating, user went back online)
+}).on('denied', function (err) {
+// a document failed to replicate (e.g. due to permissions)
+}).on('complete', function (info) {
+var db = new PouchDB("sikkim");
+db.find({selector:
+  {
+      "_id":{"$type":"string"}
+  },"fields":["_id"]
 
-// async function abcd(){
-//   let d= await subdistrict2(district);
-//   console.log(d);
-//   return d;
+}).then(function(result){
+  ed=JSON.stringify(result);
+  ed1=JSON.parse(ed);
+  ed2=JSON.stringify(ed1["docs"]);
+  var i=0;
+  for(i=0;i<ed1["docs"].length;i++){
+      l.push(ed1["docs"][i]["_id"]);
+  }
 
-// }
+}).catch(function(err){
+  return err;
+})
+return l;
+
+
+}).on('error', function (err) {
+console.log(err;
+});
