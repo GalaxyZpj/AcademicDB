@@ -18382,9 +18382,9 @@ return x;
 }
 
 
-async function schoolProfile(schoolcode){
+async function schoolProfile2(schoolcode){
   let x=[];
-  let y;
+  var y;
   console.log(schoolcode);
 var sync = PouchDB.sync(schoolcode,api.concat(schoolcode), {
 
@@ -18392,27 +18392,7 @@ var sync = PouchDB.sync(schoolcode,api.concat(schoolcode), {
 console.log("change chala");
 }).on('paused', function (err) {
   console.log("yaha tak pahuch gya");
-  var db = new PouchDB(schoolcode);
-  db.find({selector:
-  {
-    "_id":"root:profile"
-  },
   
-  }).then(function(result){
-    let temp;
-    temp = result['docs'][0];
-    console.log(temp);
-    y = {
-      name: temp['name']
-    }
-    console.log(result["docs"][0]);
-    x=result["docs"][0]
-  return y; 
-  
-  }).catch(function(err){
-  return err;
-  console.log("galat hua")
-  });
 }).on('active', function () {
 // replicate resumed (e.g. new changes replicating, user went back online)
 }).on('denied', function (err) {
@@ -18440,8 +18420,67 @@ console.log("complete")
 // handle error
 });
 
-
-
-return x;
+var db = new PouchDB(schoolcode);
+  db.find({selector:
+  {
+    "_id":"root:profile"
+  },
+  
+  }).then(function(result){
+    console.log(result)
+   x.pop();
+   
+   console.log();
+   x.push(result['docs'][0]);
+   console.log(x);
+   return result['docs'][0];
+  
+  }).catch(function(err){
+  return err;
+  console.log("galat hua")
+  });
+  console.log(x);
+  return result['docs'][0];
 
 }
+
+async function callSync(schoolcode){
+var sync = PouchDB.sync(schoolcode,api.concat(schoolcode), {
+  live: true,
+  retry: true
+}).on('change', function (info) {
+  // handle change
+}).on('paused', function (err) {
+  // replication paused (e.g. replication up to date, user went offline)
+}).on('active', function () {
+  // replicate resumed (e.g. new changes replicating, user went back online)
+}).on('denied', function (err) {
+  // a document failed to replicate (e.g. due to permissions)
+}).on('complete', function (info) {
+  // handle complete
+}).on('error', function (err) {
+  // handle error
+});
+}
+
+async function schoolProfile(schoolcode){
+  callSync(schoolcode);
+var k= await something(schoolcode);
+console.log(k);
+return k;
+
+}
+async function something(schoolcode){
+  console.log(schoolcode);
+  var db = new PouchDB(schoolcode);
+  try {
+    var doc = await db.get("root:profile");
+    return doc;
+  } catch (err) {
+    console.log(err);
+  }
+
+  }
+ 
+
+

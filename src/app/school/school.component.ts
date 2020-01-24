@@ -41,7 +41,14 @@ export class SchoolComponent implements OnInit {
 
     schoolProfile(this.schoolcode).then(
       response => {
+        let x = [];
+        for(var i=0; i<2; i++) {
+          x.push(response[i]);
+          console.log('MM');
+        }
         console.log(response);
+       
+        console.log(x);
         this.school = new School(response.schoolcode,
           response.name,
           response.address,
