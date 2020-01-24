@@ -4,7 +4,7 @@ import { DataFetchService } from '../shared/data-fetch.service';
 
 declare function sendDistricts(): any;
 declare function subdistrict2(district): any;
-declare function senddistrict(): any;
+
 
 @Component({
   selector: 'app-records',
@@ -34,15 +34,14 @@ export class RecordsComponent implements OnInit {
     //   }
     // );
     // this.district = sendDistricts();
-    senddistrict().then(result => {
-  
+
+    sendDistricts().then(result => {
       this.district = result;
     })
-
-    console.log(this.district);
   }
 
   onSelectDistrict(dist: string) {
+    this.subDistrictChoosed = false;
     // console.log(this.d);
     this.districtSelected = dist;
     // this.data.cloudantHttp(['sikkim', dist]).subscribe(
@@ -63,7 +62,6 @@ export class RecordsComponent implements OnInit {
     })
     
     // this.subDistrict = subdistrict2(dist);
-    console.log(this.subDistrict);
 
     this.districtChoosed = true;
   }

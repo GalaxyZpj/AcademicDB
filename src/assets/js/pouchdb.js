@@ -18074,7 +18074,7 @@ async function subdistrict2(district) {
 }
 
 //fetch districs
-async function senddistrict(){
+async function sendDistricts(){
   let l=[];
   let ed;
   let ed1;
@@ -18106,8 +18106,6 @@ retry: true
     return err;
   })
   
-  
-  
   }).on('error', function (err) {
   console.log(err);
 }).on('active', function () {
@@ -18132,8 +18130,6 @@ retry: true
     return err;
   })
   
-  
-  
   }).on('error', function (err) {
   console.log(err);
 }).on('denied', function (err) {
@@ -18156,9 +18152,7 @@ retry: true
   }).catch(function(err){
     return err;
   })
-  
-  
-  
+
   }).on('error', function (err) {
   console.log(err);
 }).on('complete', function (info) {
@@ -18181,9 +18175,6 @@ db.find({selector:
 }).catch(function(err){
   return err;
 });
-
-
-
 }).on('error', function (err) {
 console.log(err);
 })
