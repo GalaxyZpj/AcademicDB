@@ -18380,3 +18380,68 @@ async function sendSchool(subDistrict){
 
 return x;
 }
+
+
+async function schoolProfile(schoolcode){
+  let x=[];
+  let y;
+  console.log(schoolcode);
+var sync = PouchDB.sync(schoolcode,api.concat(schoolcode), {
+
+}).on('change', function (info) {
+console.log("change chala");
+}).on('paused', function (err) {
+  console.log("yaha tak pahuch gya");
+  var db = new PouchDB(schoolcode);
+  db.find({selector:
+  {
+    "_id":"root:profile"
+  },
+  
+  }).then(function(result){
+    let temp;
+    temp = result['docs'][0];
+    console.log(temp);
+    y = {
+      name: temp['name']
+    }
+    console.log(result["docs"][0]);
+    x=result["docs"][0]
+  return y; 
+  
+  }).catch(function(err){
+  return err;
+  console.log("galat hua")
+  });
+}).on('active', function () {
+// replicate resumed (e.g. new changes replicating, user went back online)
+}).on('denied', function (err) {
+// a document failed to replicate (e.g. due to permissions)
+var db = new PouchDB(schoolcode);
+  db.find({selector:
+  {
+    "_id":"root:profile"
+  },
+  
+  }).then(function(result){
+    console.log(result);
+  for(i=0;i<result["docs"].length;i++){
+    x.push(result["docs"]);
+  }
+  // return result;
+  
+  }).catch(function(err){
+  return err;
+  console.log("galat hua")
+  });
+}).on('complete', function (info) {
+console.log("complete")
+}).on('error', function (err) {
+// handle error
+});
+
+
+
+return x;
+
+}

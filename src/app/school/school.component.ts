@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataFetchService } from '../shared/data-fetch.service';
 import { School } from './school.model';
 
-declare function setDistricts(): any;
+declare function schoolProfile(schoolcode): any;
   
 @Component({
   selector: 'app-school',
@@ -26,9 +26,22 @@ export class SchoolComponent implements OnInit {
         this.schoolcode = params['schoolcode'];
       }
     );
-    this.data.cloudantHttp([this.schoolcode, 'root:profile']).subscribe(
-      (response: any) => {
+    // this.data.cloudantHttp([this.schoolcode, 'root:profile']).subscribe(
+    //   (response: any) => {
         // console.log(response);
+        // this.school = new School(response.schoolcode,
+        //   response.name,
+        //   response.address,
+        //   response.subDistrict,
+        //   response.board,
+        //   response.principal,
+        //   response.teacherCount);
+      // }
+    // );
+
+    schoolProfile(this.schoolcode).then(
+      response => {
+        console.log(response);
         this.school = new School(response.schoolcode,
           response.name,
           response.address,
