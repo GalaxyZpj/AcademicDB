@@ -18084,24 +18084,57 @@ live: true,
 retry: true
 }).on('change', function (info) {
   console.log('Changed');
-  repeat();
+  var db = new PouchDB("sikkim");
+  db.find({selector:
+    {
+        "_id":{"$type":"string"}
+    },"fields":["_id"]
+  
+  }).then(function(result){
+    ed=JSON.stringify(result);
+    ed1=JSON.parse(ed);
+    ed2=JSON.stringify(ed1["docs"]);
+    var i=0;
+    for(i=0;i<ed1["docs"].length;i++){
+        l.push(ed1["docs"][i]["_id"]);
+       
+    }
+    return l;
+  
+  }).catch(function(err){
+    return err;
+  }
+  
   )
 }).on('paused', function (err) {
   console.log('Paused');
-  repeat();
+  console.log('Complete');
+  var db = new PouchDB("sikkim");
+  db.find({selector:
+    {
+        "_id":{"$type":"string"}
+    },"fields":["_id"]
+  
+  }).then(function(result){
+    ed=JSON.stringify(result);
+    ed1=JSON.parse(ed);
+    ed2=JSON.stringify(ed1["docs"]);
+    var i=0;
+    for(i=0;i<ed1["docs"].length;i++){
+        l.push(ed1["docs"][i]["_id"]);
+    }
+    return l;
+  }).catch(function(err){
+    return err;
+  })
+  
+  
+  
+  }).on('error', function (err) {
+  console.log(err);
 }).on('active', function () {
   console.log('Active');
-  repeat();
-}).on('denied', function (err) {
-  console.log('Denied');
-  repeat();
-}).on('complete', function (info) {
   console.log('Complete');
-  repeat();
-})
-
-}
-function repeat(){
   var db = new PouchDB("sikkim");
   db.find({selector:
     {
@@ -18125,5 +18158,57 @@ function repeat(){
   
   }).on('error', function (err) {
   console.log(err);
-}
+}).on('denied', function (err) {
+  console.log('Denied');
+  console.log('Complete');
+  var db = new PouchDB("sikkim");
+  db.find({selector:
+    {
+        "_id":{"$type":"string"}
+    },"fields":["_id"]
+  
+  }).then(function(result){
+    ed=JSON.stringify(result);
+    ed1=JSON.parse(ed);
+    ed2=JSON.stringify(ed1["docs"]);
+    var i=0;
+    for(i=0;i<ed1["docs"].length;i++){
+        l.push(ed1["docs"][i]["_id"]);
+    }return l;
+  
+  }).catch(function(err){
+    return err;
+  })
+  
+  
+  
+  }).on('error', function (err) {
+  console.log(err);
+}).on('complete', function (info) {
+  console.log('Complete');
+var db = new PouchDB("sikkim");
+db.find({selector:
+  {
+      "_id":{"$type":"string"}
+  },"fields":["_id"]
 
+}).then(function(result){
+  ed=JSON.stringify(result);
+  ed1=JSON.parse(ed);
+  ed2=JSON.stringify(ed1["docs"]);
+  var i=0;
+  for(i=0;i<ed1["docs"].length;i++){
+      l.push(ed1["docs"][i]["_id"]);
+  }
+
+}).catch(function(err){
+  return err;
+})return l;
+
+
+
+}).on('error', function (err) {
+console.log(err);
+})
+return l;
+}
