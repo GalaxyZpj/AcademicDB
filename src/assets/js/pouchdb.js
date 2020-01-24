@@ -18084,31 +18084,9 @@ live: true,
 retry: true
 }).on('change', function (info) {
   console.log('Changed');
-  var db = new PouchDB("sikkim");
-  db.find({selector:
-    {
-        "_id":{"$type":"string"}
-    },"fields":["_id"]
-  
-  }).then(function(result){
-    ed=JSON.stringify(result);
-    ed1=JSON.parse(ed);
-    ed2=JSON.stringify(ed1["docs"]);
-    var i=0;
-    for(i=0;i<ed1["docs"].length;i++){
-        l.push(ed1["docs"][i]["_id"]);
-       
-    }
-    return l;
-  
-  }).catch(function(err){
-    return err;
-  }
-  
-  )
+ 
 }).on('paused', function (err) {
   console.log('Paused');
-  console.log('Complete');
   var db = new PouchDB("sikkim");
   db.find({selector:
     {
@@ -18134,7 +18112,7 @@ retry: true
   console.log(err);
 }).on('active', function () {
   console.log('Active');
-  console.log('Complete');
+
   var db = new PouchDB("sikkim");
   db.find({selector:
     {
@@ -18160,7 +18138,6 @@ retry: true
   console.log(err);
 }).on('denied', function (err) {
   console.log('Denied');
-  console.log('Complete');
   var db = new PouchDB("sikkim");
   db.find({selector:
     {
@@ -18203,7 +18180,7 @@ db.find({selector:
 
 }).catch(function(err){
   return err;
-})return l;
+});
 
 
 
