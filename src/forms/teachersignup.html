@@ -1,0 +1,44 @@
+<html lng="en" dir="ltr">
+    <head>
+        <meta charset="utf-8"> <title>TEACHER SIGN UP</title>
+        <link rel="stylesheet" href="teachersignup.css">
+        <script>
+        function validate()
+        {
+            var phoneNumber = document.getElementById('phonenumber').value;
+            var phoneRGEX = /^[2-9]{2}[0-9]{8}$/;
+            var phoneResult = phoneRGEX.test(phoneNumber);
+            if(phoneResult == false)
+             {
+                alert('Please enter a valid phone number');
+                return false;
+            }
+            return true;
+        }
+        </script>
+    </head>
+    <body>
+        <div class="form">
+            <h1> TEACHER SIGN UP</h1>
+            <div class="entries">
+            <form onsubmit="validate()">
+            <label>Student Name:</label>
+            <div class="txtb">
+                  <input name="teachername"type="text"placeholder="Teacher's Name" required> </div>
+            <label>Admission Number:</label>
+            <div class="txtb">
+                  <input name="tid"type="text"placeholder="Teacher ID" required> </div>
+                  <label>Phone number:</label>
+                  <div class="txtb">
+                  <input name="phonenumber" id="phonenumber" type="text"placeholder="Teacher's Phone Number" required> </div>
+                  <label>Email id:</label>
+                  <div class="txtb">
+                  <input name="email"type="email"placeholder="Teacher's E-mail ID" required> </div>
+                  <label>School Code:</label>
+                  <div class="txtb">
+                  <input name="name"type="text"placeholder="Teacher's School Code" required> </div>
+                </div>
+            <input type="submit" value="SIGN UP" class="btn"></input>
+            </form>
+
+        </div>

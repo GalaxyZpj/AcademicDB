@@ -41,18 +41,21 @@
         <!-- <a href="#intro"><img src="img/logo.png" alt="" title=""></a> -->
       </div>
 
-      <nav id="nav-menu-container">
+    <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          
-          <li><a href="#gallery">Gallery</a></li>
-          <li class="menu-has-children"><a href="">Drop Down</a>
+          <li><a href="#" [routerLink]="['/records']" routerLinkActive="router-link-active">Records</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#" [routerLink]="['/login']" routerLinkActive="router-link-active">Login</a></li>
+
+          <li><a href="#"[routerLink]="['/register']" routerLinkActive="router-link-active">Register</a></li>
+          <li><a href="#" [routerLink]="['/dashboard']" routerLinkActive="router-link-active">Dashboard</a></li>
+          <!--<li><a href="#" [routerLink]="['/auth']" routerLinkActive="router-link-active">Authentication</a></li>
+          <li><a href="#" [routerLink]="['/admin']" routerLinkActive="router-link-active">Administration</a></li>
+          <!--<li class="menu-has-children"><a href="">Drop Down</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
-              <li class="menu-has-children"><a href="#">Drop Down 2</a>
+              <!--<li class="menu-has-children"><a href="#">Drop Down 2</a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
                   <li><a href="#">Deep Drop Down 2</a></li>
@@ -60,12 +63,12 @@
                   <li><a href="#">Deep Drop Down 4</a></li>
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
-              </li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-              <li><a href="#">Drop Down 5</a></li>
+              </li>-->
+            <!--  <li><a href="#" [routerLink]="['/dashboard']" routerLinkActive="router-link-active">Dashboard</a></li>
+              <li><a href="#" [routerLink]="['/auth']" routerLinkActive="router-link-active">Authentication</a></li>
+              <li><a href="#" [routerLink]="['/admin']" routerLinkActive="router-link-active">Administration</a></li>
             </ul>
-          </li>
+          </li>-->
           <li><a href="#contact">Contact Us</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
@@ -83,7 +86,7 @@
       <a href="#about" class="btn-get-started scrollto">Get Started</a>
     </div>
 
-   
+
 
   </section><!-- #intro -->
 
@@ -140,7 +143,7 @@
 
           <div class="col-lg-8 offset-lg-4">
             <div class="section-header wow fadeIn" data-wow-duration="1s">
-              <h3 class="section-title">Product Featuress</h3>
+              <h3 class="section-title">Product Features</h3>
               <span class="section-divider"></span>
             </div>
           </div>
@@ -151,12 +154,12 @@
 
           <div class="col-lg-8 col-md-7 ">
 
-            <div class="row">
+            <div class="row xyz">
 
               <div class="col-lg-6 col-md-6 box wow fadeInRight">
                 <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
                 <h4 class="title"><a href="">Super-fast</a></h4>
-                <p class="description">Our apps are build with progressive functionalies and become faster as you use them</p>
+                <p class="description">Our apps are build with progressive functionalities and become faster as you use them</p>
               </div>
               <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.1s">
                 <div class="icon"><i class="ion-ios-flask-outline"></i></div>
@@ -166,12 +169,12 @@
               <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.2s">
                 <div class="icon"><i class="ion-social-buffer-outline"></i></div>
                 <h4 class="title"><a href="">Cross Platform</a></h4>
-                <p class="description">AcademicDB is there where you are wheather its iOS or android, Windows or Mac AcademicDB is there for you</p>
+                <p class="description">AcademicDB is there where you are whether its iOS or android, Windows or Mac AcademicDB is there for you</p>
               </div>
               <div class="col-lg-6 col-md-6 box wow fadeInRight" data-wow-delay="0.3s">
                 <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
                 <h4 class="title"><a href="">Version control</a></h4>
-                <p class="description">Our database are built like a tank. with version storange and smart back-up you can relax because your data is safe with us.</p>
+                <p class="description">Our database are built like a tank,with version storage and smart back-up you can relax because your data is safe with us.</p>
               </div>
             </div>
 
@@ -262,13 +265,13 @@
     <!--==========================
       More Features Section
     ============================-->
-    
 
-    
+
+
     <!--==========================
       Pricing Section
     ============================-->
-   
+
     <!--==========================
       Frequently Asked Questions Section
     ============================-->
@@ -565,7 +568,7 @@
             &copy; Copyright <strong>JIIT_PUSH</strong>. All Rights Reserved
           </div>
           <div class="credits">
-         
+
             Designed by <a href="">JIIT_PUSH</a>
           </div>
         </div>
