@@ -18249,3 +18249,134 @@ async function sendSubDistrict(district) {
   return x;
 }
 // fetch subdistricts complete
+
+//fetch schools start
+async function sendSubDistrict(district) {
+  let x=[];
+  let ed;
+  let ed1;
+  let ed2;
+  var rep = PouchDB.replicate(api.concat("sikkim"),"sikkim", {
+    live: true,
+    retry: true
+  }).on('change', function (info) {
+    console.log("changechala");
+  }).on('paused', function (err) {
+    console.log("paused2");
+    var db = new PouchDB("sikkim");
+    
+    db.find({
+      selector: {
+          "_id": district
+        }
+    }).then(function (result) {
+     console.log(result);
+    // ed=JSON.stringify(result);
+    // ed1=JSON.parse(ed);
+    // ed2=JSON.stringify(ed1["docs"]);
+
+      console.log(result["docs"][0])
+
+    for(i=0;i<result["docs"][0]["subdistricts"].length;i++){
+      x.push(result["docs"][0]["subdistricts"][i]);
+      
+  }
+
+  console.log(x);
+  return x;
+   
+    }).catch(function (err) {
+      console.log(err);
+    });
+    
+  
+  }).on('active', function () {
+    console.log("active");
+    // replicate resumed (e.g. new changes replicating, user went back online)
+  }).on('denied', function (err) {
+    // a document failed to replicate (e.g. due to permissions)
+    var db = new PouchDB("sikkim");
+    
+    db.find({
+      selector: {
+          "_id": district
+        }
+    }).then(function (result) {
+     console.log(result);
+     x= result;
+     return x;
+
+    }).catch(function (err) {
+      console.log(err);
+    });
+
+  }).on('complete', function (info) {
+    // handle complete
+    console.log("complete")
+    var db = new PouchDB("sikkim");
+    
+    db.find({
+      selector: {
+          "_id": district
+        }
+    }).then(function (result) {
+     console.log(result);
+    x= result;
+    return x;
+
+    }).catch(function (err) {
+      console.log(err);
+    });
+
+  }).on('error', function (err) {
+    // handle error
+    console.log(err)
+    
+  });
+  return x;
+}
+//fetch schools
+async function sendSchool(subDistrict){
+  let ed2;
+  let ed;
+  let ed1;
+  let x=[];
+  var rep = PouchDB.replicate(api.concat("schools"),"schools", {
+        live: true,
+        retry:true,
+      }).on('change', function (info) {
+        console.log("change chala");
+
+      }).on('paused', function (err) {
+       var db = new PouchDB("schools");
+    db.get(subDistrict).then(function(result){
+       
+        console.log(result["schools"]);
+        for(i=0;i<result["schools"].length;i++){
+          x.push(result["schools"][i]);
+        }
+        return x;
+       
+    }).catch(function(err){
+        return err;
+    });
+      }).on('active', function () {
+       
+      }).on('denied', function (err) {
+       
+        var db = new PouchDB("schools");
+        db.get(subDistrict).then(function(result){
+           console.log(result["schools"]);
+            for(i=0;i<result["school"].length;i++){
+              x.push(result["schools"][i]);}
+            return x;
+      }).on('complete', function (info) {
+       console.log("complete")
+      }).on('error', function (err) {
+        // handle error
+      });
+   
+})
+
+return x;
+}

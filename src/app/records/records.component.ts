@@ -4,6 +4,7 @@ import { DataFetchService } from '../shared/data-fetch.service';
 
 declare function sendDistricts(): any;
 declare function sendSubDistrict(district): Promise<any>;
+declare function sendSchool(subDistrict): Promise<any>;
 
 
 @Component({
@@ -68,11 +69,19 @@ export class RecordsComponent implements OnInit {
 
   onSelectSubDistrict(subDist: string) {
     this.subDistrictSelected = subDist;
-    this.data.cloudantHttp(['schools', subDist]).subscribe(
-      response => {
-        this.schools =  response['schools'];
+    // this.data.cloudantHttp(['schools', subDist]).subscribe(
+    //   response => {
+    //     this.schools =  response['schools'];
+    //   }
+    // );
+
+    sendSchool(subDist).then(
+      result => {
+        this.schools = result;
+        console.log(this.schools);
       }
     );
+
     this.subDistrictChoosed = true;
   }
 
