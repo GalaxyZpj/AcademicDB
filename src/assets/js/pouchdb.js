@@ -18092,18 +18092,48 @@ function subdistrict(district){
   return subDistrict;
 }
 
-// async function subdistrict2(district) {
+// function subdistrict2(district) {
 //   var db = new PouchDB("sikkim");
-//   try {
-//     var result = await db.find({selector:
-//       {
-//           "_id":district
-//       }
-//     });
-//   } catch (err) {
-//     console.log(err);
-//   }
+//   let x;
 
-//   console.log(result);
-//   return result['docs']['0'];
+//   db.find({selector:
+//     {
+//         "_id":district
+//     }
+//   }, async function (err, result) {
+//     if (err) { return console.log(err); }
+//     x = await result['docs']['0']['subdistricts'];
+//     return x;
+  
+//   });
+
+//   console.log(x);
+//   return x;
+// }
+
+
+async function subdistrict2(district) {
+  var db = new PouchDB("sikkim");
+  var x;
+  try {
+    var result = await db.find({
+      selector: {
+        "_id": district
+      }
+    });
+    console.log(result);
+    x =  result['docs']['0']['subdistricts'];
+  } catch (err) {
+    console.log(err);
+  }
+  console.log(x);
+  return x;
+}
+
+
+// async function abcd(){
+//   let d= await subdistrict2(district);
+//   console.log(d);
+//   return d;
+
 // }
