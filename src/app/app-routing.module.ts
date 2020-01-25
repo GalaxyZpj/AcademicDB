@@ -20,6 +20,7 @@ import { TeacherListComponent } from './school/teacher-list/teacher-list.compone
 import { TeacherComponent } from './school/teacher/teacher.component';
 import { ChooserComponent } from './school/chooser/chooser.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { AddStudentComponent } from './school/add-student/add-student.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'schoolProfile', component: SchoolComponent },
   // { path: 'studentAttendance', component: StudentAttendanceComponent },
   // { path: 'studentMarks', component: StudentMarksComponent },
-  
+  { path: 'addStudent', component: AddStudentComponent },
+
   // Teacher Tiles
   { path: 'teacherDivisionList', component: TeacherDivisionListComponent },
   { path: 'teacherList', component: TeacherListComponent },
