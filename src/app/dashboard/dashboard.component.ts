@@ -37,6 +37,9 @@ export class DashboardComponent {
       case 'schoolProfile':
         goToPage = 'schoolProfile';
         break;
+      case 'addStudent':
+        goToPage = 'addStudent';
+        break;
       default:
         goToPage = listType;
     }
