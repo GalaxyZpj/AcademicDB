@@ -6,8 +6,9 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { DataFetchService } from '../shared/data-fetch.service';
 
 // declare var terms: { term: string, maxMarks: string }[];
+declare function fetchDBdoc(schoolcoe,abc):any;
 declare function fetchDBdoc4(schoolcode,arg,class1):any;
-
+declare function fetchDBdoc5(schoolcode,arg2,dos):any;
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -86,7 +87,7 @@ export class DashboardComponent {
           //   }
           // );
           let standard = result['standard'];
-          fetchDBdoc4(this.schoolcode,"root:classList",standard).then(
+          fetchDBdoc4(this.schoolcode,"root:class_list1",standard).then(
             response=>{
               console.log(response)
             }
@@ -125,30 +126,35 @@ export class DashboardComponent {
             }
             let subject = result['subjectName'];
             let standard = result['standard'];
-          
-          this.data.cloudantHttp([this.schoolcode, 'subjects:'+standard]).subscribe(
-            result => {
-              
-              let revID = result['_rev'];
-              console.log(revID);
-              let updatedData = {
-               'name': subject,
-                'maxMarks': terms
-              }
-              let subjects: any[] = result['subjects'];
-              subjects.push(updatedData);
+            let updatedData = {
+              'name': subject,
+               'maxMarks': terms
+             }
 
-              let newDoc = {
-                '_rev': revID,
-                'subjects': subjects
-              }
-              this.data.cloudantHttpPut([this.schoolcode, 'subjects:'+standard], newDoc).subscribe(
-                response => {
-                  console.log(response);
-                }
-              );
-            }
-          );
+
+          // this.data.cloudantHttp([this.schoolcode, 'subjects:'+standard]).subscribe(
+          //   result => {
+              
+          //     let revID = result['_rev'];
+          //     console.log(revID);
+          //     let updatedData = {
+          //      'name': subject,
+          //       'maxMarks': terms
+          //     }
+          //     let subjects: any[] = result['subjects'];
+          //     subjects.push(updatedData);
+
+          //     let newDoc = {
+          //       '_rev': revID,
+          //       'subjects': subjects
+          //     }
+          //     this.data.cloudantHttpPut([this.schoolcode, 'subjects:'+standard], newDoc).subscribe(
+          //       response => {
+          //         console.log(response);
+          //       }
+          //     );
+          //   }
+          // );
 
 
           // this.data.cloudantHttpPut([this.schoolcode, 'subjects:class_'+standard], updatedData).subscribe(
@@ -156,7 +162,15 @@ export class DashboardComponent {
           //     console.log(response);
           //   }
           // );
-          
+          let d="subjects:"+standard;
+          console.log(d);
+          fetchDBdoc5(this.schoolcode,"subjects:"+standard,updatedData).then(
+            result=>{
+              console.log(result)
+            }
+          )
+         
+
 
 
 
@@ -226,12 +240,21 @@ export class AddSubjectBox implements OnInit{
     }
 
   ngOnInit() {
-    this.cloudant.cloudantHttp([this.schoolcode, 'root:class_list']).subscribe(
-      doc => {
-        this.standardData = doc['class_list'];
-        console.log(this.standardData);
+    // this.cloudant.cloudantHttp([this.schoolcode, 'root:class_list']).subscribe(
+    //   doc => {
+    //     this.standardData = doc['class_list'];
+    //     console.log(this.standardData);
+    //   }
+    // );
+    fetchDBdoc(this.schoolcode,"root:class_list").then(
+      result=>{
+        console.log(result)
+        this.standardData=result["class_list"]
       }
-    );
+    )
+
+
+
   }
 
   onNoClick(): void {

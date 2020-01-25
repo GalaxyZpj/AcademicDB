@@ -18644,4 +18644,64 @@ async function call_axios(username,password){
     return b.data;
   
 }
+async function fetchDBdoc4(schoolcode,arg2,class1){
+  callSync(schoolcode);
+var k= await addclass(schoolcode,arg2,class1);
+console.log(k);
+return k;
+}
+async function addclass(schoolcode,arg2,class1){
+console.log(schoolcode);
+var db = new PouchDB(schoolcode);
+var s;
+try {
+  var doc = await db.get(arg2);
+  s=doc.class_list;
+  s.push(class1)
+  var response = await db.put({
+    _id: arg2,
+    _rev: doc._rev,
+    class_list:s
+  });
+  var x=await addsubject(schoolcode,class1,arg2);
+} catch (err) {
+  console.log(err);
+}}
+async function addsubject(schoolcode,class1,arg2){
+  console.log(schoolcode);
+  var x="subjects:"
+  var z=x.concat(class1);
+  var db = new PouchDB(schoolcode);
+  try {
+    var response = await db.put({
+      _id: z,
+      subjects:[]
+    });
+    return response;
+  } catch (err) {
+    console.log(err);
+  }}
+  async function fetchDBdoc5(schoolcode,arg2,dos){
+    callSync(schoolcode);
+  var k= await addsubject(schoolcode,arg2,dos);
+  console.log(k);
+  return k;
+  }
+  async function addsubject(schoolcode,arg2,dos){
+  console.log(schoolcode);
+  var db = new PouchDB(schoolcode);
+  try {
+    var doc = await db.get(arg2);
+    var s;
+    s=doc.subjects;
+    s.push(dos)
+    var response = await db.put({
+      _id: arg2,
+      _rev: doc._rev,
+      subjects:s
+    });
+  } catch (err) {
+    console.log(err);
+  }
+  }
 
