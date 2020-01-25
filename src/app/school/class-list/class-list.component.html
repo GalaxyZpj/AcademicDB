@@ -1,5 +1,7 @@
 <form #standardList>
-    <h1 style="color: white;" class="head">Class List</h1><br>
+    <div class="container">
+
+     <h1 style="color:black;" class="head">Class List</h1><br><hr />
         <div class="form-row">
             <div class="col">
                 <ul class="list-group" *ngIf="standardData?.length != 0">
@@ -11,5 +13,6 @@
                 </ul>
                 <h3 *ngIf="studentData?.length == 0">No classes to show</h3>
             </div>
+        </div>
         </div>
 </form>

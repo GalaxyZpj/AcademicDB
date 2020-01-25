@@ -1,5 +1,6 @@
 <form #teacherDivisionList>
-    <h1>Teacher Divison List</h1><br>
+  <h1>Teacher Divison List</h1><br>
+  <div class="container">
         <div class="form-row">
             <div class="col">
                 <ul class="list-group" *ngIf="teacherDivisions?.length != 0">
@@ -11,5 +12,6 @@
                 </ul>
                 <h3 *ngIf="teacherDivisions?.length == 0">No divisions to show</h3>
             </div>
+        </div>
         </div>
 </form>
