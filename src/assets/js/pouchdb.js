@@ -18537,6 +18537,57 @@ async function fetchClassList(schoolcode,arg2){
     return doc;
   } catch (err) {
     console.log(err);
+  }}
+  async function fetchDBdoc1(schoolcode,arg2){
+    callSync(schoolcode);
+ var k= await teacherdivision(schoolcode,arg2);
+ console.log(k);
+ return k;
+ }
+  async function teacherdivision(schoolcode,arg2){
+    console.log(schoolcode);
+    var db = new PouchDB(schoolcode);
+    try {
+      var doc = await db.get(arg2);
+      return doc;
+    } catch (err) {
+      console.log(err);
+    }
+  
+  }
+  async function fetchDBdoc2(schoolcode,arg2){
+    callSync(schoolcode);
+ var k= await teacherlist(schoolcode,arg2);
+ console.log(k);
+ return k;
+ }
+ async function teacherlist(schoolcode,arg2){
+  console.log(schoolcode);
+  var db = new PouchDB(schoolcode);
+  try {
+    var doc = await db.get(arg2);
+    return doc;
+  } catch (err) {
+    console.log(err);
   }
 
 }
+async function fetchDBdoc3(schoolcode,arg2){
+  callSync(schoolcode);
+var k= await teacherprofile(schoolcode,arg2);
+console.log(k);
+return k;
+}
+async function teacherprofile(schoolcode,arg2){
+console.log(schoolcode);
+var db = new PouchDB(schoolcode);
+try {
+  var doc = await db.get(arg2);
+  return doc;
+} catch (err) {
+  console.log(err);
+}
+
+}
+
+

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataFetchService } from 'src/app/shared/data-fetch.service';
-
+declare function fetchDBdoc1(schoolcode,anc):any;
 @Component({
   selector: 'app-teacher-division-list',
   templateUrl: './teacher-division-list.component.html',
@@ -22,11 +22,17 @@ export class TeacherDivisionListComponent implements OnInit {
         this.chooser = params['chooser'];
       }
     );
-    this.data.cloudantHttp([this.schoolcode, 'root:teacherDivision']).subscribe(
-      request => {
-        this.teacherDivisions = request['divisions'];
+    // this.data.cloudantHttp([this.schoolcode, 'root:teacherDivision']).subscribe(
+    //   request => {
+    //     this.teacherDivisions = request['divisions'];
+    //   }
+    // );
+    fetchDBdoc1(this.schoolcode,"root:teacherDivision").then(
+      result=>{
+        console.log(result)
+        this.teacherDivisions=result["divisions"]
       }
-    );
+    )
   }
 
   onSelectDivision(division: string) {

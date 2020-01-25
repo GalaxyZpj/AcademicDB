@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataFetchService } from 'src/app/shared/data-fetch.service';
 import { ActivatedRoute } from '@angular/router';
 import { Teacher } from './teacher.model';
-
+declare function fetchDBdoc3(schoolcode,teachercode):any;
 @Component({
   selector: 'app-teacher',
   templateUrl: './teacher.component.html',
@@ -22,22 +22,40 @@ export class TeacherComponent implements OnInit {
         this.teachercode = params['teachercode'];
       }
     );
-    this.data.cloudantHttp([this.schoolcode, 'teacher:'+this.teachercode]).subscribe(
-      request => {
+    // this.data.cloudantHttp([this.schoolcode, 'teacher:'+this.teachercode]).subscribe(
+    //   request => {
+    //     this.teacher = new Teacher (
+    //       this.teachercode,
+    //       request['name'],
+    //       request['dob'],
+    //       request['gender'],
+    //       request['address'],
+    //       request['pincode'],
+    //       request['email'],
+    //       request['phone'],
+    //       request['division'],
+    //       request['dateOfJoining'],
+    //       request['subjects']
+    //     )
+    //   }
+    // );
+    fetchDBdoc3(this.schoolcode,"teacher:"+this.teachercode).then(
+      request=>{
+        console.log(request)
         this.teacher = new Teacher (
-          this.teachercode,
-          request['name'],
-          request['dob'],
-          request['gender'],
-          request['address'],
-          request['pincode'],
-          request['email'],
-          request['phone'],
-          request['division'],
-          request['dateOfJoining'],
-          request['subjects']
-        )
+                this.teachercode,
+                request['name'],
+                request['dob'],
+                request['gender'],
+                request['address'],
+                request['pincode'],
+                request['email'],
+                request['phone'],
+                request['division'],
+                request['dateOfJoining'],
+                request['subjects']
+              )
       }
-    );
+    )
   }
 }
