@@ -18591,3 +18591,22 @@ try {
 }
 
 
+
+async function findDBdoc(schoolcode,arg2){
+  callSync(schoolcode);
+var k= await findFrom(schoolcode,arg2);
+console.log(k);
+return k;
+}
+
+async function findfrom(schoolcode,arg2){
+  console.log(schoolcode);
+  var db = new PouchDB(schoolcode);
+  try {
+    var result = await db.find(arg2);
+    return doc;
+  } catch (err) {
+    console.log(err);
+  }
+
+}
