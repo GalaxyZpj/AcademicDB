@@ -35,7 +35,7 @@ a, button {
 	content: " ";
 	display: table;
 }
- 
+
 .clearfix:after {
 	clear: both;
 }
@@ -50,7 +50,7 @@ a, button {
 
 /* To Navigation Style */
 .cctop {
-	background:#056c86;	
+	background:#056c86;
 	width: 100%;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -127,7 +127,7 @@ a, button {
 /* Wrapper Style */
 
 .wrapper{
-	margin:0 auto;	
+	margin:0 auto;
 	width: 100%;
 
 
@@ -155,7 +155,8 @@ position: relative;
 cursor: pointer;
 transition: all .4s ease;
 user-drag: element;
-border: solid 2px transparent;
+border: solid 3px black;
+border-radius:6px;
 text-align:center;
 line-height:100px;
 }
@@ -163,7 +164,7 @@ line-height:100px;
 	opacity: 0.7;
 } */
 div[class^="btn"]:hover{
-	
+
   transform: scale(1.2);
   z-index: 100;
 
@@ -178,9 +179,11 @@ margin-bottom: 20px;
 cursor: pointer;
 user-select: none;
 transition: all .3s ease;
+position:sticky;
+top:10px;
 }
 .Start:hover{
-  text-shadow: 0 0 4px white;
+  text-shadow: 0 0 4px black;
 }
 .space{
 	margin-bottom: 110px;
@@ -195,12 +198,12 @@ transition: all .3s ease;
 .bottom{bottom: 5px;}
 .top{top: 5px;}
 
-.red{background: #df0024;}
-.blue{ background: #00a9ec;}
-.orange{background: #ff9000;}
-.green{background: #0e5d30;}
-.purple{background: #8b0189;}
-.red-light{background: #ce4e4e;}
+.red{background:linear-gradient(346deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 48%, rgba(0,212,255,1) 100%);}
+.blue{ background:linear-gradient(0deg, rgba(9,9,121,1) 0%, rgba(164,225,249,1) 16%, rgba(61,104,152,1) 61%, rgba(2,0,36,1) 100%);}
+.orange{background:#a6d4f5;}
+.green{background:#4998d1;}
+.purple{background:#0b4f80;}
+.red-light{background:#9abeed;}
 .photo{
   background: url('http://lorempixel.com/200/95/people');
   background-position: -2px -2px;
@@ -226,19 +229,19 @@ div[class^="icon"]{
 ::-webkit-scrollbar{
   width: 10px;
 	height: 10px;
-	cursor: pointer;	
+	cursor: pointer;
 }
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px 2px rgba(0,0,0,0.3);
     background: #007491;
 }
 ::-webkit-scrollbar-thumb {
-    background: #002f3b; 
+    background: #002f3b;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
     cursor: pointer;
 }
 ::selection{
-    background: mintcream; 
+    background: mintcream;
 }
 
 @keyframes flip{
@@ -246,10 +249,10 @@ div[class^="icon"]{
     transform: rotateX(0deg);
   }
   15%{
-    transform: rotateX(360deg);  
+    transform: rotateX(360deg);
   }
   100%{
-    transform: rotateX(360deg); 
+    transform: rotateX(360deg);
   }
 }
 
@@ -257,7 +260,7 @@ div[class^="icon"]{
 
 @keyframes fade{
   0%{
-    opacity: 0; 
+    opacity: 0;
   }
   10%{
     opacity: 1;
