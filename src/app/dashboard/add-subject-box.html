@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Provide Subject Curriculum Details</h1>
+
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Choose Class</mat-label>
+        <mat-select [(value)]="data.standard">
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let standard of standardData" value="{{ standard }}">{{ standard | uppercase }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Specify Subject Name</mat-label>
+        <input matInput [(ngModel)]="data.subjectName">
+    </mat-form-field>
+</div>
+
+<!-- <div mat-dailog-content *ngFor="let t of terms; let i=index;">
+    <h3>Term {{ i + 1 }}</h3>
+    <mat-form-field>
+        <mat-label>Term Name</mat-label>
+        <input matInput (ngModel)="data.terms.push(term)">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Maximum Marks</mat-label>
+        <input matInput (ngModel)="data.terms.push(maxMarks)">
+    </mat-form-field>
+</div>
+
+
+<div mat-dialog-actions>
+    <button mat-button (click)="addTerm()">Add Term</button>
+</div> -->
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+</div>

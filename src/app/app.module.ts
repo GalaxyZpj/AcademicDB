@@ -15,7 +15,7 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { StudentAttendanceComponent } from './school/student-attendance/student-attendance.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent, AddClassBox, AddSubjectBox } from './dashboard/dashboard.component';
 import { StudentListComponent } from './school/student-list/student-list.component';
 import { ClassListComponent } from './school/class-list/class-list.component';
 import { TeacherDivisionListComponent } from './school/teacher-division-list/teacher-division-list.component';
@@ -25,6 +25,14 @@ import { AcademicRecordsComponent } from './school/academic-records/academic-rec
 import { TeacherAttendanceComponent } from './school/teacher-attendance/teacher-attendance.component';
 import { ChooserComponent } from './school/chooser/chooser.component';
 import { HomepageComponent } from './homepage/homepage.component';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+
+
 
 
 @NgModule({
@@ -49,14 +57,25 @@ import { HomepageComponent } from './homepage/homepage.component';
     TeacherAttendanceComponent,
     ChooserComponent,
     HomepageComponent,
+    AddClassBox,
+    AddSubjectBox,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
     BrowserAnimationsModule,
   ],
+  entryComponents: [
+    AddClassBox,
+    AddSubjectBox,
+ ],
   providers: [],
   bootstrap: [AppComponent]
 })
