@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataFetchService } from 'src/app/shared/data-fetch.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
+declare function studentlist(schoolcode,class1): any;
 @Component({
   selector: 'app-student-list',
   templateUrl: './student-list.component.html',
@@ -23,12 +23,19 @@ export class StudentListComponent implements OnInit {
       }
     );
     // console.log(this.standard, this.schoolcode);
-    this.data.cloudantHttp([this.schoolcode, 'studentList:'+this.standard]).subscribe(
-      request => {
-        this.studentData = request['students'];
+    // this.data.cloudantHttp([this.schoolcode, 'studentList:'+this.standard]).subscribe(
+    //   request => {
+    //     this.studentData = request['students'];
+    //   }
+    // );
+    studentlist(this.schoolcode,this.standard).then(
+      result=>{
+        console.log(result)
+        this.studentData=result["students"]
       }
-    );
+    )
   }
+
 
   onSelectStudent(admissionNo: string) {
     this.router.navigate([this.operation], { queryParams: { 'admissionNo': admissionNo }, queryParamsHandling: 'merge' });
