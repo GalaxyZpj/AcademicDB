@@ -18610,3 +18610,38 @@ async function findfrom(schoolcode,arg2){
   }
 
 }
+
+async function electron_auth(username, password){
+  var db= new PouchDB("credentials");
+var doc ={
+  '_id':username,
+  'password':password
+}
+db.get(username).then(function (doc) {
+  if(doc["password"]==password){
+   return true;
+  }
+}).catch(function (err) {
+  console.log(err);
+  console.log("nhi milla")
+});
+let k= await call_axios(username,password);
+console.log(k);
+
+
+}
+
+async function call_axios(username,password){
+ let b = await axios.post('https://academicdb-api.herokuapp.com/api/users/login/', {
+      username: username,
+      password: password
+    }).catch(function (err) {
+      console.log(err);
+      return err;
+    });  
+    console.log(b.data);
+    console.log("ho gya");
+    return b.data;
+  
+}
+
