@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Student } from './student.model';
 import { DataFetchService } from 'src/app/shared/data-fetch.service';
+declare function fetchDBdoc(schoolcode,arg2): any;
 
 @Component({
   selector: 'app-student',
@@ -22,8 +23,29 @@ export class StudentComponent implements OnInit {
         this.admissionNo = params['admissionNo'];
       }
     );
-    this.data.cloudantHttp([this.schoolcode, 'student:' + this.admissionNo]).subscribe(
+    // this.data.cloudantHttp([this.schoolcode, 'student:' + this.admissionNo]).subscribe(
+    //   request => {
+    //     this.student = new Student(
+    //       this.admissionNo,
+    //       request['name'],
+    //       request['admission_no'],
+    //       request['standard'],
+    //       request['section'],
+    //       request['gender'],
+    //       request['dob'],
+    //       request['father_name'],
+    //       request['mother_name'],
+    //       request['phone'],
+    //       request['email'],
+    //       request['address'],
+    //       request['date_of_joining'],
+    //       request['transport'],
+    //       request['marks']);
+    //   }
+    // );
+    fetchDBdoc(this.schoolcode,'student:' + this.admissionNo).then(
       request => {
+        console.log(request);
         this.student = new Student(
           this.admissionNo,
           request['name'],
@@ -39,9 +61,9 @@ export class StudentComponent implements OnInit {
           request['address'],
           request['date_of_joining'],
           request['transport'],
-          request['marks'])
+          request['marks']);
       }
-    )
+    );
   }
 
   onSelectMarksheet() {
