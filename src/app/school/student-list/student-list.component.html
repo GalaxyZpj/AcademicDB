@@ -1,5 +1,6 @@
 <form #studentList>
-    <h1 style="color: white;">Student List</h1><br>
+    <h1 style="color:black;" align="center">Student List</h1><br><hr />
+    <div class="container">
         <div class="form-row">
             <div class="col">
                 <ul class="list-group" *ngIf="studentData?.length != 0">
@@ -7,13 +8,14 @@
                         *ngFor="let student of studentData;"
                         (click)="onSelectStudent(student.code)">
                         <div class="row">
-                            <div class="col-xs-3">{{ student.code }} : </div>
-                            <div class="col-xs-1">:</div>
+                            <div class="col-xs-3">{{ student.code }}:</div>
+                            <div class="col-xs-1"></div>
                             <div class="col-xs-8">{{ student.name }}</div>
                         </div>
                     </li>
                 </ul>
                 <h3 *ngIf="studentData?.length == 0">No students to show</h3>
             </div>
+        </div>
         </div>
 </form>

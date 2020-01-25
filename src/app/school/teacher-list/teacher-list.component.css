@@ -1,0 +1,85 @@
+/*.list-group{
+
+        width: 35rem;
+
+
+
+}
+.col{
+    left: 25vw;
+}*/
+.ng-untouched.ng-pristine.ng-valid{width:100%;}
+.container{background-color:rgba(186, 235, 245,0.3);
+  border-radius:15px;
+  margin-left:23%;
+  margin-top:5%;
+  max-width:700px;
+  width:60%;
+  box-shadow: 0 0 20px #000000b3;
+  padding-top:5%;
+  max-height:600px;
+  margin-left:auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-top:50px;
+  height:2%;
+
+}
+.col-xs-8{
+position: relative;
+width: 20px;
+}
+
+
+h1
+{
+align:center;
+position: relative;
+top:0px;
+color: black;
+font-size:45px;
+text-shadow: 0px 4px 2px #7F97C9;
+}
+
+li
+{
+  font-size:20px;
+  text-align: center;
+  background-color: #edfafc;
+  width:70%;
+  color:#164a4f;
+  max-width:800px;
+  margin-left:15%;
+}
+
+li:hover:not(.active)
+{
+  background-color:#badbff;
+  opacity:0.8;
+  color:black;
+}
+
+.list-group-item.active
+{
+  background-color:rgba(186, 235, 245,0.3);
+  border: none;
+  font-size: 20.5px;
+  color: #132a70;
+  font-weight: normal;
+}
+.list-group
+{
+  overflow-y: scroll;
+  overflow-x:none;
+  height:400px;
+  border-radius:30px;
+  shadow: 0 0 20px #000000b3;
+
+}
+.list-group::-webkit-scrollbar {
+    display: none;
+}
+
+.list-group {
+    -ms-overflow-style: none;
+}

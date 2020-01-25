@@ -19,6 +19,28 @@
                         <input type="password" class="form-control" name="password" ngModel required minlength="6">
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="col">
+                        <label class="col-form-label" for="usertype"><b>User Type: </b></label>
+                    </div>
+                    <div class="radio">
+                      <div class="teacher">
+                      <label>Teacher </label><input type="radio" class="form-control1" name="usertype" value="Teacher">
+                      </div>
+                      <label>Student </label><input type="radio" class="form-control1" name="usertype" value="Student"><br />
+
+                      <label>Administrator </label><input type="radio" class="form-control12" name="usertype" value="Administrator"><br />
+                      <label>School </label><input type="radio" class="form-control13" name="usertype" value="School">
+
+
+
+
+
+                      </div>
+                    <div class="col">
+
+              </div>
+                </div>
                 <br>
                 <div class="form-row" style="margin-left: 0.4cm;">
                     <button class="btn btn-primary" type="submit" style="width: 2.5cm;" [disabled]="!f.valid">Login</button>

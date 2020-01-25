@@ -4,8 +4,11 @@
     color: #292828;
     font-size: 0.5cm;
     padding: 4%;
-    margin-top: 1cm;
+    margin-top:10vh;
     width:60%;
+    box-shadow: 0 0 30px #000000b3;
+    border-radius: 10px;
+
 }
 h1 {
     font-size: 1.5cm;
@@ -64,3 +67,19 @@ input:hover {
     bottom:7vh;}
   .btn.btn-primary{position: relative;left:22vw;}
 }
+.form-control1,.form-control12{border: none;
+box-shadow:none;
+position: relative;left:20px;
+}
+
+.form-control12{border: none;
+box-shadow:none;
+  position: relative;}
+
+  .form-control13{border: none;
+  box-shadow:none;
+  position: relative;
+  left:20px;
+}
+label{}
+.form-control1,.form-control12,.form-control13{}
