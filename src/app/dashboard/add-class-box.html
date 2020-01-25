@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Please Enter Class and Section</h1>
+<div mat-dialog-content>
+  <p>Class (eg. 1, 2, etc)</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.standard" MatFormFieldControl>
+  </mat-form-field>
+</div>
+<!-- <div mat-dialog-content>
+  <p>Section (eg. A, B, etc)</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.section">
+  </mat-form-field>
+</div> -->
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+</div>
