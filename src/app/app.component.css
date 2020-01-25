@@ -1,0 +1,18 @@
+a{
+display:block;
+padding:8px 16px;
+color:white;
+background-color: linear-gradient(0deg, rgba(9,9,121,1) 0%, rgba(164,225,249,1) 16%, rgba(61,104,152,1) 61%, rgba(2,0,36,1) 100%);
+
+}
+a:hover{
+  background-color:#97c3fc;
+  color:whitesmoke;
+}
+.previous{
+  background-color:linear-gradient(0deg, rgba(9,9,121,1) 0%, rgba(164,225,249,1) 16%, rgba(61,104,152,1) 61%, rgba(2,0,36,1) 100%);
+  border-radius: 50px;
+}
+
+a.previous{background-color:#1e4578;width:100px;}
+a.previous:hover{background-color:#50555c;}
