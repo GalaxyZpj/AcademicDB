@@ -6,6 +6,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { DataFetchService } from '../shared/data-fetch.service';
 
 // declare var terms: { term: string, maxMarks: string }[];
+declare function fetchDBdoc4(schoolcode,arg,class1):any;
 
 @Component({
   selector: 'app-dashboard',
@@ -54,36 +55,49 @@ export class DashboardComponent {
         if (result) {
           console.log(result);
           console.log('Now this will run.');
-          this.data.cloudantHttp([this.schoolcode, 'root:class_list']).subscribe(
-            response => {
-              let classList: string[] = response['class_list'];
-              let revID = response['_rev'];
-              console.log(classList);
-              let standard = result['standard'];
-              classList.push('class_'+standard);
-              console.log(classList);
-              let updatedData = {
-                "class_list": classList,
-                "_rev": revID,
-              }
-              let subjectData = {
-                "_id": 'subjects:class_'+standard,
-                "subjects": []
-              }
-              this.data.cloudantHttpPut([this.schoolcode, 'root:class_list'], updatedData).subscribe(
-                request => {
-                  console.log(request);
-                }
-              );
+          // this.data.cloudantHttp([this.schoolcode, 'root:class_list']).subscribe(
+          //   response => {
+          //     let classList: string[] = response['class_list'];
+          //     let revID = response['_rev'];
+          //     console.log(classList);
+          //     let standard = result['standard'];
+          //     classList.push('class_'+standard);
+          //     console.log(classList);
+          //     let updatedData = {
+          //       "class_list": classList,
+          //       "_rev": revID,
+          //     }
+          //     let subjectData = {
+          //       "_id": 'subjects:class_'+standard,
+          //       "subjects": []
+          //     }
+          //     this.data.cloudantHttpPut([this.schoolcode, 'root:class_list'], updatedData).subscribe(
+          //       request => {
+          //         console.log(request);
+          //       }
+          //     );
 
-              this.data.cloudantHttpPost([this.schoolcode], subjectData).subscribe(
-                response => {
-                  console.log(response);
-                }
-              );
+          //     this.data.cloudantHttpPost([this.schoolcode], subjectData).subscribe(
+          //       response => {
+          //         console.log(response);
+          //       }
+          //     );
 
+          //   }
+          // );
+          let standard = result['standard'];
+          fetchDBdoc4(this.schoolcode,"root:classList",standard).then(
+            response=>{
+              console.log(response)
             }
-          );
+          )
+
+
+
+
+
+
+
           console.log('This is closed.');
         }
         console.log('The dialog was closed.')
