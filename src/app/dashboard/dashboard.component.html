@@ -32,10 +32,11 @@
         <div class="btn-big red-light" (click)="onClickTile('assignedClasses', 'teacherDivisionList', 'chooser')"> <i class="fa fa-wrench fa-2x"></i> <span class="label bottom" >View Teacher's Assigned Classes</span> </div>
 
         <div class="btn-big purple" (click)="onClickTile('schoolProfile', 'school', 'none')"> <i class="fa fa-video-camera fa-2x"></i> <span class="label bottom" >View School Profile</span> </div>
-        <div class="btn-small orange" (click)="onClickTile('addClass', 'school', 'none')"> <i class="fa fa-music fa-2x"></i> <span class="label bottom" >Add Class</span> </div>
+        <!-- <div class="btn-small orange" (click)="onClickTile('addClass', 'school', 'none')"> <i class="fa fa-music fa-2x"></i> <span class="label bottom" >Add Class</span> </div> -->
+        <div class="btn-small orange" (click)="openClassBox()"> <i class="fa fa-music fa-2x"></i> <span class="label bottom" >Add Class</span> </div>
         <div class="btn-small green-bright last" (click)="onClickTile('addStudent', 'school', 'none')"> <i class="fa fa-gamepad fa-2x"></i> <span class="label bottom" >Add Student</span> </div>
         <div class="btn-small blue" (click)="onClickTile('addTeacher', 'school', 'none')"> <i class="fa fa-twitter fa-2x"></i> <span class="label bottom" >Add Teacher</span> </div>
-        <div class="btn-small red-light" (click)="onClickTile('addSubject', 'school', 'none')"> <i class="fa fa-twitter fa-2x"></i> <span class="label bottom" >Add Subject</span> </div>
+        <div class="btn-small red-light" (click)="openSubjectBox()"> <i class="fa fa-twitter fa-2x"></i> <span class="label bottom" >Add Subject</span> </div>
 
         </div>
       </div>

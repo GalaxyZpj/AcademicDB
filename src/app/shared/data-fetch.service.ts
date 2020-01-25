@@ -140,4 +140,24 @@ export class DataFetchService {
     // console.log(final_url)
     return this.http.get(final_url)
   }
+
+  cloudantHttpPut(args: string[], data: any) {
+    let documentString: string = ''
+    for (let key of args) {
+      documentString = documentString + key + '/'
+    }
+    let final_url = this.url + documentString
+    // console.log(final_url)
+    return this.http.put(final_url, data);
+  }
+
+  cloudantHttpPost(args: string[], data: any) {
+    let documentString: string = ''
+    for (let key of args) {
+      documentString = documentString + key + '/'
+    }
+    let final_url = this.url + documentString
+    // console.log(final_url)
+    return this.http.post(final_url, data);
+  }
 }
