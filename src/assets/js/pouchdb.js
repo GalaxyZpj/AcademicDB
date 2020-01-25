@@ -18381,69 +18381,6 @@ async function sendSchool(subDistrict){
 return x;
 }
 
-
-async function schoolProfile2(schoolcode){
-  let x=[];
-  var y;
-  console.log(schoolcode);
-var sync = PouchDB.sync(schoolcode,api.concat(schoolcode), {
-
-}).on('change', function (info) {
-console.log("change chala");
-}).on('paused', function (err) {
-  console.log("yaha tak pahuch gya");
-  
-}).on('active', function () {
-// replicate resumed (e.g. new changes replicating, user went back online)
-}).on('denied', function (err) {
-// a document failed to replicate (e.g. due to permissions)
-var db = new PouchDB(schoolcode);
-  db.find({selector:
-  {
-    "_id":"root:profile"
-  },
-  
-  }).then(function(result){
-    console.log(result);
-  for(i=0;i<result["docs"].length;i++){
-    x.push(result["docs"]);
-  }
-  // return result;
-  
-  }).catch(function(err){
-  return err;
-  console.log("galat hua")
-  });
-}).on('complete', function (info) {
-console.log("complete")
-}).on('error', function (err) {
-// handle error
-});
-
-var db = new PouchDB(schoolcode);
-  db.find({selector:
-  {
-    "_id":"root:profile"
-  },
-  
-  }).then(function(result){
-    console.log(result)
-   x.pop();
-   
-   console.log();
-   x.push(result['docs'][0]);
-   console.log(x);
-   return result['docs'][0];
-  
-  }).catch(function(err){
-  return err;
-  console.log("galat hua")
-  });
-  console.log(x);
-  return result['docs'][0];
-
-}
-
 async function callSync(schoolcode){
 var sync = PouchDB.sync(schoolcode,api.concat(schoolcode), {
   live: true,
@@ -18465,12 +18402,12 @@ var sync = PouchDB.sync(schoolcode,api.concat(schoolcode), {
 
 async function schoolProfile(schoolcode){
   callSync(schoolcode);
-var k= await something(schoolcode);
+var k= await findSchool(schoolcode);
 console.log(k);
 return k;
 
 }
-async function something(schoolcode){
+async function findSchool(schoolcode){
   console.log(schoolcode);
   var db = new PouchDB(schoolcode);
   try {
@@ -18481,6 +18418,22 @@ async function something(schoolcode){
   }
 
   }
- 
 
+ async function fetchDBdoc(schoolcode,arg2){
+   callSync(schoolcode);
+var k= await fetchClassList(schoolcode,arg2);
+console.log(k);
+return k;
+}
 
+async function fetchClassList(schoolcode,arg2){
+  console.log(schoolcode);
+  var db = new PouchDB(schoolcode);
+  try {
+    var doc = await db.get(arg2);
+    return doc;
+  } catch (err) {
+    console.log(err);
+  }
+
+}

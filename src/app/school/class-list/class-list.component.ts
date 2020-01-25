@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataFetchService } from 'src/app/shared/data-fetch.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+declare function fetchDBdoc(schoolcode,arg2): any;
+
 @Component({
   selector: 'app-class-list',
   templateUrl: './class-list.component.html',
@@ -21,9 +23,17 @@ export class ClassListComponent implements OnInit {
         this.chooser = params['chooser'];
       }
     )
-    this.data.cloudantHttp([this.schoolcode, 'root:class_list']).subscribe(
-      request => {
-        this.standardData = request['class_list'];
+    // this.data.cloudantHttp([this.schoolcode, 'root:class_list']).subscribe(
+    //   request => {
+    //     this.standardData = request['class_list'];
+    //   }
+    // );
+
+
+    fetchDBdoc(this.schoolcode,"root:class_list").then(
+      result => {
+        console.log(result);
+        this.standardData = result['class_list'];
       }
     );
   }
