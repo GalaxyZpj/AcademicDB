@@ -22,8 +22,8 @@ import { ChooserComponent } from './school/chooser/chooser.component';
 import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'homepage', component: HomepageComponent },
+  { path: 'homepage', component: HomeComponent },
+  { path: '', component: HomepageComponent },
   { path: 'dashboard', component: DashboardComponent },
   
   // School Tiles

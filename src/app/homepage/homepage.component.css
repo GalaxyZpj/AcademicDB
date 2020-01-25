@@ -55,7 +55,7 @@ h6 {
 .back-to-top {
   position: fixed;
   display: none;
-  background: linear-gradient(45deg, #035afc,#2fed9e);
+  
   color: #fff;
   padding: 2px 20px 8px 20px;
   font-size: 16px;
