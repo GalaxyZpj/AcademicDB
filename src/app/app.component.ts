@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AcademicDB';
+  constructor(private route: ActivatedRoute, private router: Router) {}
+
+  onBack() {
+    this.router.navigate(['../'], { relativeTo: this.route })
+  }
+
 }
